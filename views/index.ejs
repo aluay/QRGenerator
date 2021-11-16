@@ -1,0 +1,50 @@
+<% var src; %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet"> 
+  <link rel='stylesheet' href='/css/styles.css' />
+  <title>QR Code Generator</title>
+</head>
+
+<body>
+  <main class="main-content" id="main-content">
+    <section class="main-header-section">
+      <h1 class="header glitched">QR Code Generator</h1>
+    </section>
+    <section class="main-form-section">
+      <form action="/" method="post">
+        <input type="text" name="input" id="input" required="required" placeholder="Enter something..." />
+        <button type="submit" class="submit" id="submit" name="submit">
+          Generate_
+        </button>
+      </form>
+    </section>
+    <section class="qr-image-section" id="qr-image-section">
+      <img src="<%=src%>" />
+      <div id="qrReplacement" class="qrReplacement">Waiting for input<div id="innerP">_</div></div>
+    </section>
+  </main>
+  <footer>Made by Abdullah Luay - Stay Awesome!</footer>
+  <script>
+  const images = document.querySelectorAll('img');
+  const div = document.getElementById("qrReplacement")
+  const p = document.getElementById("innerP");
+  images.forEach((image) => {
+    let src = image.getAttribute('src');
+    if(src === ''){
+      p.style.animation = "blink 1s infinite linear";
+    }else{
+      div.style.display = "none";
+    }
+  });
+  </script>
+</body>
+
+</html>
