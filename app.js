@@ -5,7 +5,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/"));
-
 app.set("view engine", "ejs");
 app.use(bp.urlencoded({
     extended: false
@@ -25,7 +24,7 @@ app.post("/", (req, res) => {
         height: 500,
         color: {
             dark: "#000000",
-            light: "#fef900"
+            light: "#FFFFFF"
         }
     }
 

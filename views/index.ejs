@@ -6,23 +6,22 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet"> 
-  <link rel='stylesheet' href='/css/styles.css' />
+  <link rel="icon" type="image/x-icon" href="/assets/image/favicon.gif">
+  <link rel='stylesheet' href='/css/styles.css' /> 
   <title>QR Code Generator</title>
 </head>
 
 <body>
   <main class="main-content" id="main-content">
     <section class="main-header-section">
-      <h1 class="header glitched">QR Code Generator</h1>
+      <h1 class="qrHeader">QR Code Generator</h1>
     </section>
     <section class="main-form-section">
       <form action="/" method="post">
-        <input type="text" name="input" id="input" required="required" placeholder="Enter something..." />
-        <button type="submit" class="submit" id="submit" name="submit">
-          Generate_
+        <input type="text" name="input" id="inputField" class="inputField" required="inputField" placeholder="Enter something..." />
+        <button type="submit" class="submitBtn" id="submitBtn" name="submitBtn">
+          <span class="submitBtnContent">Generate</span>
+          <span class="submitBtnGlitch"></span>
         </button>
       </form>
     </section>
@@ -31,7 +30,7 @@
       <div id="qrReplacement" class="qrReplacement">Waiting for input<div id="innerP">_</div></div>
     </section>
   </main>
-  <footer>Made by Abdullah Luay - Stay Awesome!</footer>
+  <footer></footer>
   <script>
   const images = document.querySelectorAll('img');
   const div = document.getElementById("qrReplacement")
