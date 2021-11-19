@@ -14,11 +14,14 @@
 <body>
   <main class="main-content" id="main-content">
     <section class="main-header-section">
-      <h1 class="qrHeader">QR Code Generator</h1>
+      <a href="https://simpleqrgen.com/"><h1 class="qrHeader">QR Code Generator</h1></a>
     </section>
     <section class="main-form-section">
       <form action="/" method="post">
-        <input type="text" name="input" id="inputField" class="inputField" required="inputField" placeholder="Enter something..." />
+        <div class="inputFieldDiv">
+        <textarea type="text" name="input" id="inputField" class="inputField" required="inputField" placeholder="Enter something..." maxlength="1200"></textarea>
+        <span id="count" class="counter"></span>
+      </div>
         <button type="submit" class="submitBtn" id="submitBtn" name="submitBtn">
           <span class="submitBtnContent">Generate</span>
           <span class="submitBtnGlitch"></span>
@@ -32,17 +35,25 @@
   </main>
   <footer></footer>
   <script>
-  const images = document.querySelectorAll('img');
-  const div = document.getElementById("qrReplacement")
-  const p = document.getElementById("innerP");
-  images.forEach((image) => {
-    let src = image.getAttribute('src');
-    if(src === ''){
-      p.style.animation = "blink 1s infinite linear";
-    }else{
-      div.style.display = "none";
-    }
-  });
+    const textarea = document.getElementById('inputField');
+    const length = textarea.getAttribute("maxlength");
+    const count = document.getElementById('count');
+    count.innerHTML = length;
+    textarea.onkeyup = function () {
+    count.innerHTML = (length - this.value.length);
+    };
+
+    const images = document.querySelectorAll('img');
+    const div = document.getElementById("qrReplacement")
+    const p = document.getElementById("innerP");
+    images.forEach((image) => {
+      let src = image.getAttribute('src');
+      if(src === ''){
+        p.style.animation = "blink 1s infinite linear";
+      }else{
+        div.style.display = "none";
+      }
+    });
   </script>
 </body>
 
