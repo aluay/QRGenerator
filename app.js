@@ -11,20 +11,22 @@ app.use(bp.urlencoded({
 }));
 app.use(bp.json());
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     res.render("index");
 })
 
 app.post("/", async (req, res) => {
     const input = req.body.input;
+    const qrBGColor = req.body.qrBGColor;
+    const qrPatternColor = req.body.qrPatternColor;
     const qrOptions = {
         errorCorrectionLevel: 'H',
         margin: 0.5,
         width: 500,
         height: 500,
         color: {
-            dark: "#000000",
-            light: "#FFFFFF"
+            dark: qrPatternColor,
+            light: qrBGColor
         }
     }
 

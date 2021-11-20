@@ -167,12 +167,12 @@ button {
   letter-spacing: 0.1875em;
 }
 
-.main-header-section {
+.mainHeaderSection {
   margin: 1em auto;
   width: 50%;
 }
 
-.main-header-section a {
+.mainHeaderSection a {
   text-decoration: none;
 }
 
@@ -229,6 +229,11 @@ button {
   text-align: center;
 }
 
+.qrColorsDiv {
+  margin: 1.25em auto;
+  color: var(--lightGrayColor);
+}
+
 .submitBtn {
   width: 10em;
   height: 2.5em;
@@ -242,7 +247,7 @@ button {
   outline: transparent;
   position: relative;
   display: block;
-  margin: 3em auto;
+  margin: 1.25em auto;
 }
 
 .submitBtnContent {
@@ -396,7 +401,7 @@ img[src=""] {
   display: none;
 }
 
-.qr-image-section img {
+.qrImageSection img {
   max-width: 75%;
   height: auto;
   margin: 1em auto;
@@ -422,7 +427,7 @@ img[src=""] {
 .qrReplacement {
   display: flex;
   justify-content: center;
-  margin: 2em auto;
+  margin: 1.25em auto;
   color: var(--lightGrayColor);
   font-size: 1.5em;
   font-weight: 300;

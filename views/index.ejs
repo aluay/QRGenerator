@@ -5,7 +5,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+  <meta http-equiv="Content-Security-Policy"
+  content="default-src * https://xxxxx.com;
+  script-src * 'unsafe-eval' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' https://xxxxx.com data:">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <meta name=”robots” content="index, follow">
@@ -17,15 +21,22 @@
 </head>
 
 <body>
-  <main class="main-content" id="main-content">
-    <section class="main-header-section">
+  <main class="mainContent" id="mainContent">
+    <section class="mainHeaderSection">
       <a href="https://simpleqrgen.com/"><h1 class="qrHeader">QR Code Generator</h1></a>
     </section>
-    <section class="main-form-section">
+    <section class="mainFormSection">
       <form action="/" method="post">
         <div class="inputFieldDiv">
         <textarea type="text" name="input" id="inputField" class="inputField" required="inputField" placeholder="Enter something..." maxlength="1200"></textarea>
         <span id="count" class="counter"></span>
+      </div>
+      <div class="qrColorsDiv">
+        <label class="qrPatternColorLabel" for="qrPatternColor">Pattern Color</label>
+        <input type="color" id="qrPatternColor" name="qrPatternColor" value="#000000">
+
+        <label class="qrBGColorLabel" for="qrBGColor">Background Color</label>
+        <input type="color" id="qrBGColor" name="qrBGColor" value="#FFFFFF">
       </div>
         <button type="submit" class="submitBtn" id="submitBtn" name="submitBtn">
           <span class="submitBtnContent">Generate</span>
@@ -33,7 +44,7 @@
         </button>
       </form>
     </section>
-    <section class="qr-image-section" id="qr-image-section">
+    <section class="qrImageSection" id="qrImageSection">
       <img src="<%=src%>" />
       <div id="qrReplacement" class="qrReplacement">Waiting for input<div id="innerP">_</div></div>
     </section>
