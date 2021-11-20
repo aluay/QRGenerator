@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
     const input = req.body.input;
     const qrOptions = {
         errorCorrectionLevel: 'H',

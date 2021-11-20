@@ -148,6 +148,7 @@ END CSS RESET
   src: url("/assets/font/BlenderPro-Book.woff2"),
     url("/assets/font/BlenderPro-Bold.woff"),
     url("/assets/font/Blender-Pro-Bold.otf");
+  font-display: fallback;
 }
 
 body {
