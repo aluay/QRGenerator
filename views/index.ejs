@@ -1,76 +1,128 @@
 <% var src; %>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="Content-Security-Policy"
-  content="default-src * https://xxxxx.com;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * https://simpleqrgen.com;
   script-src * 'unsafe-eval' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
-  img-src 'self' https://xxxxx.com data:">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <meta name=”robots” content="index, follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="QR Code Generator. Generate QR Codes">
-  <link rel="icon" type="image/x-icon" href="/assets/image/favicon.gif">
-  <link rel='stylesheet' href='/css/styles.css' /> 
-  <title>QR Code Generator</title>
-</head>
+  img-src 'self' https://simpleqrgen.com data:"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="”robots”" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QR Code Generator. Generate QR Codes" />
 
-<body>
-  <main class="mainContent" id="mainContent">
-    <section class="mainHeaderSection">
-      <a href="https://simpleqrgen.com/"><h1 class="qrHeader">QR Code Generator</h1></a>
-    </section>
-    <section class="mainFormSection">
-      <form action="/" method="post">
-        <div class="inputFieldDiv">
-        <textarea type="text" name="input" id="inputField" class="inputField" required="inputField" placeholder="Enter something..." maxlength="1200"></textarea>
-        <span id="count" class="counter"></span>
-      </div>
-      <div class="qrColorsDiv">
-        <label class="qrPatternColorLabel" for="qrPatternColor">Pattern Color</label>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/image/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/image/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/image/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/image/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/assets/image/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>QR Code Generator</title>
+  </head>
+
+  <body>
+    <main class="mainContent" id="mainContent">
+      <section class="mainHeaderSection">
+        <a href="https://simpleqrgen.com/"
+          ><h1 class="qrHeader">QR Code Generator</h1></a
+        >
+      </section>
+      <section class="mainFormSection">
+        <form action="/" method="post">
+          <textarea
+            type="text"
+            name="input"
+            id="inputField"
+            class="inputField"
+            required="inputField"
+            placeholder="Enter something..."
+            maxlength="1200"
+          ></textarea>
+          <div class="counterDiv" id="counterDiv">
+            <span id="count" class="counter"></span>
+          </div>
+          <!-- <div class="qrColorsDiv">
+        <label class="qrPatternColorLabel" for="qrPatternColor">Pattern</label>
         <input type="color" id="qrPatternColor" name="qrPatternColor" value="#000000">
 
-        <label class="qrBGColorLabel" for="qrBGColor">Background Color</label>
+        <label class="qrBGColorLabel" for="qrBGColor">Background</label>
         <input type="color" id="qrBGColor" name="qrBGColor" value="#FFFFFF">
-      </div>
-        <button type="submit" class="submitBtn" id="submitBtn" name="submitBtn">
-          <span class="submitBtnContent">Generate</span>
-          <span class="submitBtnGlitch"></span>
-        </button>
-      </form>
-    </section>
-    <section class="qrImageSection" id="qrImageSection">
-      <img src="<%=src%>" />
-      <div id="qrReplacement" class="qrReplacement">Waiting for input<div id="innerP">_</div></div>
-    </section>
-  </main>
-  <footer></footer>
-  <script>
-    const textarea = document.getElementById('inputField');
-    const length = textarea.getAttribute("maxlength");
-    const count = document.getElementById('count');
-    count.innerHTML = length;
-    textarea.onkeyup = function () {
-    count.innerHTML = (length - this.value.length);
-    };
+      </div> -->
+          <button
+            type="submit"
+            class="submitBtn"
+            id="submitBtn"
+            name="submitBtn"
+          >
+            Generate
+          </button>
+        </form>
+      </section>
+      <section class="qrImageSection" id="qrImageSection">
+        <img src="<%=src%>" />
+        <div id="qrReplacement" class="qrReplacement">
+          Waiting for input
+          <div id="innerP">_</div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script>
+      const textarea = document.getElementById("inputField");
+      const length = textarea.getAttribute("maxlength");
+      const count = document.getElementById("count");
+      const counterDiv = document.getElementById("counterDiv");
+      count.innerHTML = length;
+      textarea.onkeyup = function () {
+        count.innerHTML = length - this.value.length;
+        if (this.value.length >= 1000) {
+          count.classList.remove("countLessThan");
+          count.classList.add("countMoreThan");
+        }
+        if (this.value.length < 1000) {
+          count.classList.remove("countMoreThan");
+          count.classList.add("countLessThan");
+        }
+      };
 
-    const images = document.querySelectorAll('img');
-    const div = document.getElementById("qrReplacement")
-    const p = document.getElementById("innerP");
-    images.forEach((image) => {
-      let src = image.getAttribute('src');
-      if(src === ''){
-        p.style.animation = "blink 1s infinite linear";
-      }else{
-        div.style.display = "none";
-      }
-    });
-  </script>
-</body>
-
+      const images = document.querySelectorAll("img");
+      const div = document.getElementById("qrReplacement");
+      const p = document.getElementById("innerP");
+      images.forEach((image) => {
+        let src = image.getAttribute("src");
+        if (src === "") {
+          p.style.animation = "blink 1s infinite linear";
+        } else {
+          div.style.display = "none";
+        }
+      });
+    </script>
+  </body>
 </html>
