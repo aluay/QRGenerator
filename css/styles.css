@@ -1,6 +1,4 @@
-/*****************************************
-START CSS RESET
-*****************************************/
+/* START CSS RESET */
 
 html,
 body,
@@ -83,14 +81,17 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
+
 /* HTML5 display-role reset for older browsers */
+
 article,
 aside,
 details,
@@ -102,237 +103,250 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
+
 body {
-  line-height: 1;
+    line-height: 1;
 }
+
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
+
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    content: "";
+    content: none;
 }
 
-/*****************************************
-END CSS RESET
-*****************************************/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* END CSS RESET */
+
+
+/* UI COLORS */
 
 :root {
-  --lightYellowColor: #ffef00;
-  --darkYellowColor: #efb701;
-  --blackColor: #000000;
-  --whiteColor: #ffffff;
-  --lightGrayColor: #cacaca;
-  --lightRedColor: #ff003c;
-  --darkRedColor: #800000;
-  --lightTealColor: #00f1ff;
-  --darkTealColor: #001417;
+    --darkBGColor: #121212;
+    --surfaceColor: #1f1f1f;
+    --blackColor: #000000;
+    --whiteColor: #ffffff;
+    --grayColor: #3f3f3f;
+    --primaryColor: #bb86fc;
+    --primaryVariant: #3700b3;
+    --secondaryColor: #03dac6;
+    --secondaryVariant: #018786;
+    --errorColor: #cf6679;
 }
 
+
+/* Fonts */
+
 @font-face {
-  font-family: "BlenderProBold";
-  src: url("/assets/font/BlenderPro-Book.woff2"),
-    url("/assets/font/BlenderPro-Bold.woff"),
-    url("/assets/font/Blender-Pro-Bold.otf");
-  font-display: fallback;
+    font-family: "BlenderProBold";
+    src: url("/assets/font/BlenderPro-Book.woff2"), url("/assets/font/BlenderPro-Bold.woff"), url("/assets/font/Blender-Pro-Bold.otf");
+    font-display: fallback;
 }
 
 body,
 html {
-  margin: 0 auto;
-  text-align: center;
-  background-color: var(--blackColor);
-  max-width: 1920px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--darkBGColor);
+    /* max-width: 1920px; */
 }
 
 body,
 input,
 textarea,
 button {
-  font-family: "BlenderProBold", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1875em;
+    font-family: "BlenderProBold", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1875em;
 }
 
 @media (min-width: 320px) {
-  /* smartphones, iPhone, portrait 480x320 phones */
-
-  .mainHeaderSection {
-    max-width: 90%;
-    margin: 0 auto 0 auto;
-  }
-  .mainHeaderSection h1 {
-    text-align: center;
-  }
-
-  .mainHeaderSection a {
-    text-decoration: none;
-  }
-
-  .qrHeader {
-    font-size: 2em;
-    font-weight: 700;
-    margin: 0em auto 0.5em auto;
-    padding: 0.2em;
-    /* background: linear-gradient(225deg, transparent 5%, var(--blackColor) 5%); */
-    background-color: var(--lightYellowColor);
-    color: var(--blackColor);
-  }
-
-  .mainFormSection {
-    max-width: 90%;
-    margin: auto;
-  }
-
-  .inputField {
-    min-width: 100%;
-    resize: none;
-    border: 1px solid var(--lightTealColor);
-    background-color: var(--darkTealColor);
-    color: var(--whiteColor);
-    outline: none;
-    min-height: 100px;
-    box-sizing: border-box;
-    padding: 0.5em;
-  }
-
-  .counterDiv {
-    background-color: var(--lightYellowColor);
-    color: var(--blackColor);
-    float: right;
-    font-size: 1em;
-  }
-
-  .countLessThan {
-    background: var(--lightYellowColor);
-    color: var(--blackColor);
-  }
-  .countMoreThan {
-    background: var(--lightRedColor);
-    color: var(--whiteColor);
-  }
-
-  .qrColorsDiv {
-    display: flex;
-    justify-content: space-between;
-    margin: 2em auto;
-    color: var(--lightGrayColor);
-  }
-
-  .submitBtn {
-    width: 8em;
-    height: 2em;
-    font-size: 1.25em;
-    font-weight: 700;
-    cursor: pointer;
-    background: linear-gradient(45deg, transparent 5%, var(--lightRedColor) 5%);
-    border: 0;
-    color: var(--whiteColor);
-    box-shadow: 3px 0px 0px var(--lightTealColor);
-    outline: transparent;
-    position: relative;
-    display: block;
-    margin: 1em auto;
-  }
-
-  img[src=""] {
-    display: none;
-  }
-
-  .qrImageSection img {
-    height: auto;
-    width: 50%;
-    margin: 1em auto;
-    box-sizing: border-box;
-    border: 30px solid var(--lightYellowColor);
-    border-left: 5px solid var(--lightYellowColor);
-    border-right: 5px solid var(--lightYellowColor);
-    border-bottom: 15px solid var(--lightYellowColor);
-    clip-path: polygon(
-      0px 25px,
-      26px 0px,
-      calc(60% - 25px) 0px,
-      60% 25px,
-      100% 25px,
-      100% calc(100% - 10px),
-      calc(100% - 15px) calc(100% - 10px),
-      calc(80% - 10px) calc(100% - 10px),
-      calc(80% - 15px) calc(100% - 0px),
-      10px calc(100% - 0px),
-      0% calc(100% - 10px)
-    );
-  }
-
-  .qrReplacement {
-    display: flex;
-    justify-content: center;
-    margin: 1.25em auto;
-    color: var(--lightYellowColor);
-    font-size: 1.5em;
-    font-weight: 300;
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 0;
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .mainHeaderSection {
+        max-width: 100%;
+        margin: 0 auto;
     }
-    50% {
-      opacity: 0;
+    .mainHeaderSection h1 {
+        text-align: center;
     }
-    51% {
-      opacity: 1;
+    .mainHeaderSection a {
+        text-decoration: none;
     }
-    100% {
-      opacity: 1;
+    .qrHeader {
+        font-size: 2em;
+        font-weight: 700;
+        margin: 0em auto 0.5em auto;
+        padding: 0.2em;
+        background-color: var(--surfaceColor);
+        color: var(--whiteColor);
+        border-bottom: solid 1px var(--grayColor);
     }
-  }
+    .mainFormSection {
+        max-width: 90%;
+        margin: auto;
+    }
+    .tabButtons {
+        display: inline-block;
+        margin-bottom: 1em;
+    }
+    .tabButtons button {
+        display: block;
+        background-color: var(--darkBGColor);
+        color: var(--whiteColor);
+        border: none;
+        cursor: pointer;
+        float: left;
+        font-size: 1em;
+        padding: 0.5em 0.75em;
+        text-align: center;
+        border: solid 1px var(--grayColor);
+    }
+    input,
+    textarea,
+    select {
+        border: none;
+        background-color: var(--surfaceColor);
+        color: var(--whiteColor);
+        outline: none;
+        box-sizing: border-box;
+        padding: 0.5em;
+        border: solid 1px var(--grayColor);
+    }
+    select option:disabled {
+        display: none;
+    }
+    .vcardQR,
+    .wifiQR {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        grid-template-areas: "." "." ".";
+    }
+    .urlInput,
+    .phoneNumber {
+        margin: 1em auto;
+        width: 100%;
+    }
+    .textInput,
+    .messageToSend {
+        width: 100%;
+        height: 100px;
+        resize: none;
+    }
+    .counterDiv {
+        background-color: var(--surfaceColor);
+        color: var(--whiteColor);
+        float: right;
+        padding: 0.2em;
+        font-size: 1em;
+        text-align: center;
+        border: solid 1px var(--grayColor);
+        margin-top: -2px;
+    }
+    .countLessThan {
+        background: var(--surfaceColor);
+        color: var(--whiteColor);
+    }
+    .countMoreThan {
+        background: var(--errorColor);
+        color: var(--whiteColor);
+    }
+    .qrColorsDiv {
+        display: flex;
+        justify-content: space-between;
+        margin: 2em auto;
+        color: var(--whiteColor);
+    }
+    img[src=""] {
+        display: none;
+    }
+    .qrImageSection {
+        max-width: 90%;
+        margin: 0.5em auto 2em auto;
+    }
+    .qrImg {
+        height: auto;
+        width: 70%;
+        display: block;
+        margin: 2em auto 0em auto;
+        box-sizing: border-box;
+        border: solid 1px var(--grayColor);
+    }
+    .qrReplacement {
+        display: flex;
+        justify-content: center;
+        margin: 1.25em auto;
+        color: var(--surfaceColor);
+        font-size: 1.5em;
+        font-weight: 300;
+    }
 }
+
 @media (min-width: 481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-  .qrImageSection img {
-    min-width: 50%;
-    max-width: 50%;
-  }
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .qrImageSection img {
+        width: 60%;
+    }
 }
+
 @media (min-width: 641px) {
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-  .qrImageSection img {
-    min-width: 40%;
-    max-width: 40%;
-  }
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .qrImageSection img {
+        width: 40%;
+    }
+    .vcardQR,
+    .wifiQR {
+        margin-top: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5em;
+        grid-template-areas: ". ." ". ." ". .";
+    }
 }
+
 @media (min-width: 961px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
-  .qrImageSection img {
-    min-width: 30%;
-    max-width: 30%;
-  }
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .qrImageSection img {
+        width: 30%;
+    }
+    .vcardQR,
+    .wifiQR {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1.5em;
+        grid-template-areas: ". . ." ". . ." ". . .";
+    }
 }
+
 @media (min-width: 1025px) {
-  /* big landscape tablets, laptops, and desktops */
-  .qrImageSection img {
-    min-width: 30%;
-    max-width: 30%;
-  }
+    /* big landscape tablets, laptops, and desktops */
+    .qrImageSection img {
+        width: 30%;
+    }
 }
+
 @media (min-width: 1281px) {
-  /* hi-res laptops and desktops */
-  .qrImageSection img {
-    min-width: 30%;
-    max-width: 30%;
-  }
+    /* hi-res laptops and desktops */
+    .qrImageSection img {
+        width: 20%;
+    }
 }

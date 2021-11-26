@@ -6,39 +6,43 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/"));
 app.set("view engine", "ejs");
-app.use(bp.urlencoded({
-    extended: false
-}));
+app.use(
+    bp.urlencoded({
+        extended: false,
+    })
+);
 app.use(bp.json());
 
-app.get("/", async (req, res) => {
+//  Render the index page
+app.get("/", async(req, res) => {
     res.render("index");
-})
+});
 
-app.post("/", async (req, res) => {
-    const input = req.body.input;
+//  One function to generate the QR codes
+app.post("/generate", async(req, res) => {
+    //  QR options
+    //  By default the colors are black for the pattern and white for the background
     const qrBGColor = req.body.qrBGColor;
     const qrPatternColor = req.body.qrPatternColor;
     const qrOptions = {
-        errorCorrectionLevel: 'H',
+        errorCorrectionLevel: "H",
         margin: 0.5,
-        width: 500,
-        height: 500,
+        width: 1000,
+        height: 1000,
         color: {
             dark: qrPatternColor,
-            light: qrBGColor
-        }
-    }
-
-    QRCode.toDataURL(input, qrOptions, (err, src) => {
+            light: qrBGColor,
+        },
+    };
+    //  encode the data to a base64 string
+    QRCode.toDataURL(req.body.qrData, qrOptions, (err, src) => {
         if (err) res.send("Something went wrong!");
-        res.render("index", {
-            src
-        })
-
-    })
-})
+        const img = Buffer.from(src);
+        //  Send the image back to the frontend
+        res.send(img);
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
-})
+});
