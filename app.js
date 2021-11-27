@@ -43,6 +43,12 @@ app.post("/generate", async(req, res) => {
     });
 });
 
+//  404 redirect to home page
+//  I don't think a separate 404 page is required
+app.get('*', function(req, res) {
+    res.render("index");
+});
+
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
 });
