@@ -81,14 +81,13 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
 
 /* HTML5 display-role reset for older browsers */
 
@@ -103,261 +102,267 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 body {
-    line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "";
-    content: none;
+  content: "";
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-
 /* END CSS RESET */
-
 
 /* UI COLORS */
 
 :root {
-    --darkBGColor: #121212;
-    --surfaceColor: #1f1f1f;
-    --blackColor: #000000;
-    --whiteColor: #ffffff;
-    --grayColor: #3f3f3f;
-    --primaryColor: #bb86fc;
-    --primaryVariant: #3700b3;
-    --secondaryColor: #03dac6;
-    --secondaryVariant: #018786;
-    --errorColor: #cf6679;
+  --darkBGColor: #121212;
+  --surfaceColor: #1f1f1f;
+  --blackColor: #000000;
+  --whiteColor: #ffffff;
+  --grayColor: #3f3f3f;
+  --primaryColor: #bb86fc;
+  --primaryVariant: #3700b3;
+  --secondaryColor: #03dac6;
+  --secondaryVariant: #018786;
+  --errorColor: #cf6679;
 }
-
 
 /* Fonts */
 
 @font-face {
-    font-family: "BlenderProBold";
-    src: url("/assets/font/BlenderPro-Book.woff2"), url("/assets/font/BlenderPro-Bold.woff"), url("/assets/font/Blender-Pro-Bold.otf");
-    font-display: fallback;
+  font-family: "BlenderProBold";
+  src: url("/assets/font/BlenderPro-Book.woff2"),
+    url("/assets/font/BlenderPro-Bold.woff"),
+    url("/assets/font/Blender-Pro-Bold.otf");
+  font-display: fallback;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    margin: 0 auto;
-    text-align: center;
-    background-color: var(--darkBGColor);
-    /* max-width: 1920px; */
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--darkBGColor);
+  /* max-width: 1920px; */
 }
 
 body,
 input,
 textarea,
 button {
-    font-family: "BlenderProBold", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1875em;
+  font-family: "BlenderProBold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1875em;
 }
 
 @media (min-width: 320px) {
-    /* smartphones, iPhone, portrait 480x320 phones */
-    .mainHeaderSection {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    .mainHeaderSection h1 {
-        text-align: center;
-    }
-    .mainHeaderSection a {
-        text-decoration: none;
-    }
-    .qrHeader {
-        font-size: 2em;
-        font-weight: 700;
-        margin: 0em auto 0.5em auto;
-        padding: 0.2em;
-        background-color: var(--surfaceColor);
-        color: var(--whiteColor);
-        border-bottom: solid 1px var(--grayColor);
-    }
-    .mainFormSection {
-        max-width: 90%;
-        margin: auto;
-        padding: 1em;
-        background-color: var(--surfaceColor);
-    }
-    .tabButtons {
-        display: flex;
-        max-width: 90%;
-        margin: 0 auto;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    .tButton {
-        float: left;
-        background-color: var(--darkBGColor);
-        color: var(--whiteColor);
-        border: none;
-        cursor: pointer;
-        font-size: 1em;
-        padding: 0.5em 0.75em;
-        text-align: center;
-        width: 100%;
-    }
-    .tabButtons::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-    .tButton:nth-child(n+2) {
-        margin-left: -1px;
-    }
-    input,
-    textarea,
-    select {
-        border: none;
-        background-color: var(--darkBGColor);
-        color: var(--whiteColor);
-        outline: none;
-        box-sizing: border-box;
-        padding: 0.5em;
-        border: solid 1px var(--grayColor);
-    }
-    select option:disabled {
-        display: none;
-    }
-    .vcardQR,
-    .wifiQR {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-        grid-template-areas: "." "." ".";
-    }
-    .urlInput,
-    .phoneNumber,
-    .emailAddress,
-    .subject,
-    .phone {
-        margin: 1em auto;
-        width: 100%;
-    }
-    .textInput,
-    .messageToSend,
-    .emailToSend {
-        width: 100%;
-        height: 100px;
-        resize: none;
-    }
-    .counterDiv {
-        background-color: var(--darkBGColor);
-        color: var(--whiteColor);
-        float: right;
-        padding: 0.2em;
-        font-size: 1em;
-        text-align: center;
-        border: solid 1px var(--grayColor);
-        margin-top: -2px;
-    }
-    .countLessThan {
-        background: var(--darkBGColor);
-        color: var(--whiteColor);
-    }
-    .countMoreThan {
-        background: var(--errorColor);
-        color: var(--whiteColor);
-    }
-    .qrColorsDiv {
-        display: flex;
-        justify-content: space-between;
-        margin: 2em auto;
-        color: var(--whiteColor);
-    }
-    img[src=""] {
-        display: none;
-    }
-    .qrImageSection {
-        max-width: 100%;
-        margin: 2em auto;
-    }
-    .qrImg {
-        display: block;
-        height: auto;
-        width: 100%;
-    }
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .mainHeaderSection {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mainHeaderSection h1 {
+    text-align: center;
+  }
+  .mainHeaderSection a {
+    text-decoration: none;
+  }
+  .qrHeader {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0em auto 0.5em auto;
+    padding: 0.2em;
+    background-color: var(--surfaceColor);
+    color: var(--whiteColor);
+    border-bottom: solid 1px var(--grayColor);
+  }
+  .mainFormSection {
+    max-width: 90%;
+    margin: auto;
+    padding: 1em;
+    background-color: var(--surfaceColor);
+  }
+  .tabButtons {
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /*  Remove scroll bar but still scrollable*/
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .tabButtons::-webkit-scrollbar {
+    /*  Remove scroll bar but still scrollable*/
+    display: none; /* Safari and Chrome */
+  }
+  .tButton {
+    float: left;
+    background-color: var(--darkBGColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.5em 0.75em;
+    text-align: center;
+    width: 100%;
+  }
+  .tabButtons::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .tButton:nth-child(n + 2) {
+    margin-left: -1px;
+  }
+  input,
+  textarea,
+  select {
+    border: none;
+    background-color: var(--darkBGColor);
+    color: var(--whiteColor);
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: solid 1px var(--grayColor);
+  }
+  select option:disabled {
+    display: none;
+  }
+  .vcardQR,
+  .wifiQR {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    grid-template-areas: "." "." ".";
+  }
+  .urlInput,
+  .phoneNumber,
+  .emailAddress,
+  .subject,
+  .phone {
+    margin: 1em auto;
+    width: 100%;
+  }
+  .textInput,
+  .messageToSend,
+  .emailToSend {
+    width: 100%;
+    height: 100px;
+    resize: none;
+  }
+  .counterDiv {
+    background-color: var(--darkBGColor);
+    color: var(--whiteColor);
+    float: right;
+    padding: 0.2em;
+    font-size: 1em;
+    text-align: center;
+    border: solid 1px var(--grayColor);
+    margin-top: -2px;
+  }
+  .countLessThan {
+    background: var(--darkBGColor);
+    color: var(--whiteColor);
+  }
+  .countMoreThan {
+    background: var(--errorColor);
+    color: var(--whiteColor);
+  }
+  .qrColorsDiv {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em auto;
+    color: var(--whiteColor);
+  }
+  img[src=""] {
+    display: none;
+  }
+  .qrImageSection {
+    max-width: 100%;
+    margin: 2em auto;
+  }
+  .qrImg {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
 }
 
 @media (min-width: 481px) {
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-    .qrImageSection img {
-        width: 60%;
-    }
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .qrImageSection img {
+    width: 60%;
+  }
 }
 
 @media (min-width: 641px) {
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    .qrImageSection img {
-        width: 40%;
-    }
-    .vcardQR,
-    .wifiQR {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-        grid-template-areas: "." "." ".";
-    }
-    .tabButtons {
-        justify-content: center;
-    }
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .qrImageSection img {
+    width: 40%;
+  }
+  .vcardQR,
+  .wifiQR {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    grid-template-areas: "." "." ".";
+  }
+  .tabButtons {
+    justify-content: center;
+  }
 }
 
 @media (min-width: 961px) {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-    .qrImageSection img {
-        width: 30%;
-    }
-    .vcardQR,
-    .wifiQR {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 1.5em;
-        grid-template-areas: ". . ." ". . ." ". . .";
-    }
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .qrImageSection img {
+    width: 30%;
+  }
+  .vcardQR,
+  .wifiQR {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1.5em;
+    grid-template-areas: ". . ." ". . ." ". . .";
+  }
 }
 
 @media (min-width: 1025px) {
-    /* big landscape tablets, laptops, and desktops */
-    .qrImageSection img {
-        width: 30%;
-    }
+  /* big landscape tablets, laptops, and desktops */
+  .qrImageSection img {
+    width: 30%;
+  }
 }
 
 @media (min-width: 1281px) {
-    /* hi-res laptops and desktops */
-    .qrImageSection img {
-        width: 20%;
-    }
+  /* hi-res laptops and desktops */
+  .qrImageSection img {
+    width: 20%;
+  }
 }
