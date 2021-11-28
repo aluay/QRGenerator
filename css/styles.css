@@ -211,6 +211,8 @@ button {
     }
     .tabButtons {
         display: flex;
+        max-width: 90%;
+        margin: 0 auto;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -223,6 +225,7 @@ button {
         font-size: 1em;
         padding: 0.5em 0.75em;
         text-align: center;
+        width: 100%;
     }
     .tabButtons::after {
         content: "";
