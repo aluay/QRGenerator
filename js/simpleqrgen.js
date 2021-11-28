@@ -8,10 +8,8 @@ function openTab(tabName, activeTab) {
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.display = "none";
         button[i].style.backgroundColor = "var(--darkBGColor)";
-        button[i].style.border = "solid 1px var(--grayColor)";
     }
     active.style.backgroundColor = "var(--surfaceColor)";
-    active.style.border = "solid 1px transparent";
     selectedTab.style.display = "block";
 }
 

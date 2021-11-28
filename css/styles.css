@@ -219,7 +219,6 @@ button {
         font-size: 1em;
         padding: 0.5em 0.75em;
         text-align: center;
-        border: solid 1px var(--grayColor);
     }
     .tabButtons::after {
         content: "";
