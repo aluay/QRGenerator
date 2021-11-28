@@ -210,7 +210,7 @@ button {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
-    .tabButtons button {
+    .tButton {
         float: left;
         background-color: var(--darkBGColor);
         color: var(--whiteColor);
@@ -220,6 +220,14 @@ button {
         padding: 0.5em 0.75em;
         text-align: center;
         border: solid 1px var(--grayColor);
+    }
+    .tabButtons::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .tButton:nth-child(n+2) {
+        margin-left: -1px;
     }
     input,
     textarea,
