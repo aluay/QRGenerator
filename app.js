@@ -43,8 +43,9 @@ app.post("/generate", async(req, res) => {
     });
 });
 
-//  404 redirect to home page
-//  I don't think a separate 404 page is required
+//  404 redirects to home page
+//  I don't think a separate 404 page is required at the moment
+//  Maybe in the future?
 app.get('*', function(req, res) {
     res.render("index");
 });

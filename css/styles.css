@@ -202,18 +202,20 @@ button {
     .mainFormSection {
         max-width: 90%;
         margin: auto;
+        padding: 1em;
+        background-color: var(--surfaceColor);
     }
     .tabButtons {
-        display: inline-block;
-        margin-bottom: 1em;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .tabButtons button {
-        display: block;
+        float: left;
         background-color: var(--darkBGColor);
         color: var(--whiteColor);
         border: none;
         cursor: pointer;
-        float: left;
         font-size: 1em;
         padding: 0.5em 0.75em;
         text-align: center;
@@ -223,7 +225,7 @@ button {
     textarea,
     select {
         border: none;
-        background-color: var(--surfaceColor);
+        background-color: var(--darkBGColor);
         color: var(--whiteColor);
         outline: none;
         box-sizing: border-box;
@@ -241,18 +243,22 @@ button {
         grid-template-areas: "." "." ".";
     }
     .urlInput,
-    .phoneNumber {
+    .phoneNumber,
+    .emailAddress,
+    .subject,
+    .phone {
         margin: 1em auto;
         width: 100%;
     }
     .textInput,
-    .messageToSend {
+    .messageToSend,
+    .emailToSend {
         width: 100%;
         height: 100px;
         resize: none;
     }
     .counterDiv {
-        background-color: var(--surfaceColor);
+        background-color: var(--darkBGColor);
         color: var(--whiteColor);
         float: right;
         padding: 0.2em;
@@ -262,7 +268,7 @@ button {
         margin-top: -2px;
     }
     .countLessThan {
-        background: var(--surfaceColor);
+        background: var(--darkBGColor);
         color: var(--whiteColor);
     }
     .countMoreThan {
@@ -286,7 +292,7 @@ button {
         height: auto;
         width: 70%;
         display: block;
-        margin: 2em auto 0em auto;
+        margin: 2em auto;
         box-sizing: border-box;
         border: solid 1px var(--grayColor);
     }
@@ -314,11 +320,13 @@ button {
     }
     .vcardQR,
     .wifiQR {
-        margin-top: 1em;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1.5em;
-        grid-template-areas: ". ." ". ." ". .";
+        grid-template-areas: "." "." ".";
+    }
+    .tabButtons {
+        justify-content: center;
     }
 }
 

@@ -34,7 +34,6 @@
     <meta name="title" content="Free Online QR Code Generator">
     <meta name="keywords" content="qr, quick response, qr code, qr code generator, qr generator, generator, url, sms, wifi, vcard, text">
     <meta name="language" content="English">
-
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/image/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/image/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/image/favicon-16x16.png" />
@@ -42,7 +41,6 @@
     <link rel="mask-icon" href="/assets/image/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-
     <link rel="stylesheet" href="/css/styles.css" />
     <title>QR Code Generator</title>
 </head>
@@ -53,44 +51,42 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <main class="mainContent" id="mainContent">
-        <!-- Keep the header and the tab buttons are always at the top -->
         <section class="mainHeaderSection">
             <a href="https://www.simpleqrgen.com/">
                 <h1 class="qrHeader">QR Code Generator</h1>
             </a>
+        </section>
+        <section class="tabsSection">
             <div class="tabButtons">
-                <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')" style="background-color: var(--grayColor);">Text</button>
+                <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')" style="background-color: var(--surfaceColor); border: solid 1px transparent;">Text</button>
                 <button class="tButton" id="urlQRButton" onclick="openTab('urlQR', 'urlQRButton')">URL</button>
                 <button class="tButton" id="vcardQRButton" onclick="openTab('vcardQR', 'vcardQRButton')">vCard</button>
                 <button class="tButton" id="wifiQRButton" onclick="openTab('wifiQR', 'wifiQRButton')">WiFi</button>
                 <button class="tButton" id="smsQRButton" onclick="openTab('smsQR', 'smsQRButton')">SMS</button>
+                <button class="tButton" id="emailQRButton" onclick="openTab('emailQR', 'emailQRButton')">email</button>
+                <button class="tButton" id="phoneQRButton" onclick="openTab('phoneQR', 'phoneQRButton')">phone</button>
             </div>
         </section>
-        <!-- All the forms are encapsulated in one section -->
         <section class="mainFormSection">
-            <!-- Text QR tab -->
             <div class="tab" id="textQR">
                 <form method="post" id="textQR">
-                    <textarea type="text" name="textInput" id="textInput" class="textInput" placeholder="Enter something..." maxlength="1200"></textarea>
+                    <textarea type="text" name="textInput" id="textInput" class="textInput" placeholder="Enter text..." maxlength="1200"></textarea>
                     <div class="counterDiv" id="counterDiv">
                         <span id="count" class="counter"></span>
                     </div>
                     <!-- <div class="qrColorsDiv">
                     <label class="qrPatternColorLabel" for="qrPatternColor">Pattern</label>
                     <input type="color" id="qrPatternColor" name="qrPatternColor" value="#000000">
-
                     <label class="qrBGColorLabel" for="qrBGColor">Background</label>
                     <input type="color" id="qrBGColor" name="qrBGColor" value="#FFFFFF">
             </div> -->
                 </form>
             </div>
-            <!-- URL QR tab -->
             <div class="tab" id="urlQR" style="display: none">
                 <form method="post" id="urlQR" class="urlQR">
                     <input type="url" name="urlInput" id="urlInput" class="urlInput" placeholder="Enter URL..." maxlength="1200"></input>
                 </form>
             </div>
-            <!-- vCard QR tab -->
             <div class="tab" id="vcardQR" style="display: none">
                 <form method="post" id="vcardQR" class="vcardQR">
                     <input id="firstName" class="firstName" name="firstName" placeholder="First Name" />
@@ -108,7 +104,6 @@
                     <input id="country" class="country" name="country" placeholder="Country" />
                 </form>
             </div>
-            <!-- WiFi QR tab -->
             <div class="tab" id="wifiQR" style="display: none">
                 <form method="post" id="wifiQR" class="wifiQR">
                     <input type="text" name="wifiInput" id="wifiInput" class="wifiInput" placeholder="WiFi Name"></input>
@@ -121,195 +116,32 @@
                     </select>
                 </form>
             </div>
-            <!-- SMS QR tab -->
             <div class="tab" id="smsQR" style="display: none;">
                 <form method="post" id="smsQR" class="sms">
                     <input type="text" name="phoneNumber" class="phoneNumber" id="phoneNumber" placeholder="Phone Number">
                     <textarea name="messageToSend" class="messageToSend" id="messageToSend" placeholder="Message to send"></textarea>
                 </form>
             </div>
-        </section>
-        <!-- when the image is generated, it's sent to the img element below
-        Every change the user makes, it updated the QR code and inserts
-        a new SRC into the element -->
-        <section class="qrImageSection" id="qrImageSection">
-            <img src="" class="qrImg" id="qrImg" alt="Your generated QR code" />
+            <div class="tab" id="emailQR" style="display: none;">
+                <form method="post" id="emailQR" class="email">
+                    <input type="text" name="emailAddress" class="emailAddress" id="emailAddress" placeholder="Email address">
+                    <input type="text" name="subject" class="subject" id="subject" placeholder="Email subject">
+                    <textarea name="emailToSend" class="emailToSend" id="emailToSend" placeholder="Email to send"></textarea>
+                </form>
+            </div>
+            <div class="tab" id="phoneQR" style="display: none;">
+                <form method="post" id="phoneQR" class="phone">
+                    <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number">
+                </form>
+            </div>
+            <div class="qrImageSection" id="qrImageSection">
+                <img src="" class="qrImg" id="qrImg" alt="Your generated QR code" />
+            </div>
         </section>
     </main>
     <footer></footer>
-    <!-- Import jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        //  Tab handler
-        // Switches between tabs and changes the color of the activated tab
-        function openTab(tabName, activeTab) {
-            let tab = document.getElementsByClassName("tab");
-            let button = document.getElementsByClassName('tButton');
-            let selectedTab = document.getElementById(tabName);
-            let active = document.getElementById(activeTab);
-            for (let i = 0; i < tab.length; i++) {
-                tab[i].style.display = "none";
-                button[i].style.backgroundColor = "var(--darkBGColor)"
-            }
-            active.style.backgroundColor = "var(--grayColor)";
-            selectedTab.style.display = "block";
-        }
-
-        //  Character counter
-        // Counts the characters and changes the counter background to red
-        //  when there's only 200 characters left
-        const textarea = document.getElementById("textInput");
-        const length = textarea.getAttribute("maxlength");
-        const count = document.getElementById("counterDiv");
-        const counterDiv = document.getElementById("counterDiv");
-        count.innerHTML = length;
-        textarea.onkeyup = function() {
-            count.innerHTML = length - this.value.length;
-            if (this.value.length >= 1000) {
-                count.classList.remove("countLessThan");
-                count.classList.add("countMoreThan");
-            }
-            if (this.value.length < 1000) {
-                count.classList.remove("countMoreThan");
-                count.classList.add("countLessThan");
-            }
-        };
-        //  Text qr generator
-        //  Format the input and sends it to the server
-        $("#textQR").keyup(function(event) {
-            event.preventDefault();
-            const qrData = $("#textInput").val();
-            //  Stop form submission if qrData is empty
-            if (qrData) {
-                $.ajax({
-                    global: false,
-                    type: "POST",
-                    url: "/generate",
-                    dataType: "html",
-                    data: {
-                        qrData
-                    },
-                    success: function(result) {
-                        //  update the img element SRC to show newly generated QR code
-                        $("#qrImg").attr("src", result);
-                    },
-                    error: function(request, status, error) {
-                        console.log(error);
-                    },
-                });
-            } else {
-                return false;
-            }
-        });
-
-        //  URL qr generator
-        //  Format the input and sends it to the server
-        $("#urlQR").keyup(function(event) {
-            event.preventDefault();
-            const qrData = $("#urlInput").val();
-            //  Stop form submission if qrData is empty
-            if (qrData) {
-                $.ajax({
-                    global: false,
-                    type: "POST",
-                    url: "/generate",
-                    dataType: "html",
-                    data: {
-                        qrData
-                    },
-                    success: function(result) {
-                        //  update the img element SRC to show newly generated QR code
-                        $("#qrImg").attr("src", result);
-                    },
-                    error: function(request, status, error) {
-                        console.log(error);
-                    },
-                });
-            } else {
-                return false;
-            }
-        });
-
-        //  WiFi qr generator
-        //  Format the input and sends it to the server
-        $("#wifiQR").on("keyup change", function() {
-            const qrData = `WIFI:S:${$("#wifiInput").val()};T:${$("#wifiEncryption").val()};P:${$("#wifiPasswordInput").val()};;`;
-            //  Stop form submission if qrData is empty
-            if (qrData) {
-                $.ajax({
-                    global: false,
-                    type: "POST",
-                    url: "/generate",
-                    dataType: "html",
-                    data: {
-                        qrData
-                    },
-                    success: function(result) {
-                        //  update the img element SRC to show newly generated QR code
-                        $("#qrImg").attr("src", result);
-                    },
-                    error: function(request, status, error) {
-                        console.log(error);
-                    },
-                });
-            } else {
-                return false;
-            }
-        });
-
-        //  SMS qr generator
-        //  Format the input and sends it to the server
-        $("#smsQR").on("keyup", function() {
-            const qrData = `SMSTO:${$("#phoneNumber").val()}:${$("#messageToSend").val()}`;
-            //  Stop form submission if qrData is empty
-            if (qrData) {
-                $.ajax({
-                    global: false,
-                    type: "POST",
-                    url: "/generate",
-                    dataType: "html",
-                    data: {
-                        qrData
-                    },
-                    success: function(result) {
-                        //  update the img element SRC to show newly generated QR code
-                        $("#qrImg").attr("src", result);
-                    },
-                    error: function(request, status, error) {
-                        console.log(error);
-                    },
-                });
-            } else {
-                return false;
-            }
-        });
-
-        //  vCard qr generator
-        //  Format the input and sends it to the server
-        $("#vcardQR").keyup(function(event) {
-            event.preventDefault();
-            //  VERY long const since the vCard format has lots of details
-            const qrData = `BEGIN:VCARD\nVERSION:3\nN:${$("#lastName").val()};${$("#firstName").val()}\nORG:${$("#org").val()}\nTITLE:${$("#workTitle").val()}\nURL:${$("#website").val()}\nEMAIL;TYPE=INTERNET:${$("#email").val()}\nTEL;CELL:${$("#personalPhoneNumber").val()}\nTEL;WORK;VOICE:${$("#workPhoneNumber").val()}\nADR:;;${$("#streetAddress").val()};${$("#city").val()};${$("#state").val()};${$("#zipcode").val()};${$("#country").val()}\nEND:VCARD`;
-            $.ajax({
-                global: false,
-                type: "POST",
-                url: "/generate",
-                dataType: "html",
-                data: {
-                    qrData
-                },
-                success: function(result) {
-                    //console.log(result);
-                    //  update the img element SRC to show newly generated QR code
-                    $("#qrImg").attr("src", result);
-                },
-                error: function(request, status, error) {
-                    console.log(error);
-                    //serviceError();
-                },
-            });
-        });
-    </script>
+    <script src="/js/simpleqrgen.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXX9EHMBB8"></script>
     <script>
