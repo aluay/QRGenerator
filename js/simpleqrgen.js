@@ -201,6 +201,7 @@ const sendToGenerator = async (qrData, qrBGColor, qrPatternColor) => {
     },
     success: function (result) {
       //  update the img element SRC to show newly generated QR code
+      $("#qrImgDownload").attr("href", result);
       $("#qrImg").attr("src", result);
     },
     error: function (request, status, error) {
