@@ -193,10 +193,10 @@ button {
     text-decoration: none;
   }
   .qrHeader {
-    font-size: 2em;
+    font-size: 1.25em;
     font-weight: 700;
     margin: 0em auto 0.5em auto;
-    padding: 0.2em;
+    padding: 0.75em 0;
     background-color: var(--surfaceColor);
     color: var(--whiteColor);
     border-bottom: solid 1px var(--grayColor);
@@ -240,6 +240,10 @@ button {
   .tButton:nth-child(n + 2) {
     margin-left: -1px;
   }
+  .tabButtons svg {
+    display: block;
+    margin: 0 auto;
+  }
   input,
   textarea,
   select {
@@ -265,13 +269,18 @@ button {
   .phoneNumber,
   .emailAddress,
   .subject,
-  .phone {
+  .phone,
+  .cryptoAddress,
+  .cryptoAmount,
+  .cryptoList {
     margin: 1em auto;
     width: 100%;
   }
+
   .textInput,
   .messageToSend,
-  .emailToSend {
+  .emailToSend,
+  .cryptoMessage {
     width: 100%;
     height: 100px;
     resize: none;
@@ -304,13 +313,13 @@ button {
     display: none;
   }
   .qrImageSection {
-    max-width: 100%;
     margin: 2em auto;
   }
   .qrImg {
     display: block;
     height: auto;
     width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -356,13 +365,22 @@ button {
 @media (min-width: 1025px) {
   /* big landscape tablets, laptops, and desktops */
   .qrImageSection img {
-    width: 30%;
+    width: 40%;
+  }
+  .mainFormSection,
+  .tabButtons {
+    max-width: 75%;
   }
 }
 
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
-  .qrImageSection img {
-    width: 20%;
+  .mainFormSection,
+  .tabButtons {
+    max-width: 70%;
+  }
+  .qrHeader {
+    font-size: 1.75em;
+    padding: 0.5em 0;
   }
 }

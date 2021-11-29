@@ -73,6 +73,23 @@ $("#wifiQR").on("keyup change", function () {
   }
 });
 
+//  Crypto qr generator
+//  Format the input and sends it to the server
+$("#cryptoQR").on("keyup change", function () {
+  const qrData = `${$("#cryptoList").val()}:${$(
+    "#cryptoAddress"
+  ).val()}?amount=${$("#cryptoAmount").val()}&message=${$(
+    "#cryptoMessage"
+  ).val()}`;
+  console.log(qrData);
+  //  Stop form submission if qrData is empty
+  if (qrData) {
+    sendToGenerator(qrData);
+  } else {
+    return false;
+  }
+});
+
 //  SMS qr generator
 //  Format the input and sends it to the server
 $("#smsQR").keyup(function () {
@@ -122,7 +139,7 @@ $("#vcardQR").keyup(function (event) {
   const qrData = `BEGIN:VCARD\nVERSION:3\nN:${$("#lastName").val()};${$(
     "#firstName"
   ).val()}\nORG:${$("#org").val()}\nTITLE:${$("#workTitle").val()}\nURL:${$(
-    "#website"
+    "#url"
   ).val()}\nEMAIL;TYPE=INTERNET:${$("#email").val()}\nTEL;CELL:${$(
     "#personalPhoneNumber"
   ).val()}\nTEL;WORK;VOICE:${$("#workPhoneNumber").val()}\nADR:;;${$(

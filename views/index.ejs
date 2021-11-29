@@ -53,18 +53,19 @@
     <main class="mainContent" id="mainContent">
         <section class="mainHeaderSection">
             <a href="https://www.simpleqrgen.com/">
-                <h1 class="qrHeader">QR Code Generator</h1>
+                <h1 class="qrHeader">Simple QR Code Generator</h1>
             </a>
         </section>
         <section class="tabsSection">
             <div class="tabButtons">
-                <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')" style="background-color: var(--surfaceColor);">Text</button>
-                <button class="tButton" id="urlQRButton" onclick="openTab('urlQR', 'urlQRButton')">URL</button>
-                <button class="tButton" id="vcardQRButton" onclick="openTab('vcardQR', 'vcardQRButton')">vCard</button>
-                <button class="tButton" id="wifiQRButton" onclick="openTab('wifiQR', 'wifiQRButton')">WiFi</button>
-                <button class="tButton" id="smsQRButton" onclick="openTab('smsQR', 'smsQRButton')">SMS</button>
-                <button class="tButton" id="emailQRButton" onclick="openTab('emailQR', 'emailQRButton')">email</button>
-                <button class="tButton" id="phoneQRButton" onclick="openTab('phoneQR', 'phoneQRButton')">phone</button>
+                <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')" style="background-color: var(--surfaceColor);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="24" fill="currentColor"><path d="M5 18v2H3v-2H0V0h11a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5zM3 2H2v14h1V2zm2 0v14h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5zm1 2h5v2H6V4zm0 3h5v2H6V7z"></path></svg>Text</button>
+                <button class="tButton" id="urlQRButton" onclick="openTab('urlQR', 'urlQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor"><path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10z"></path><path d="M10 18c.448 0 1.119-.568 1.747-1.823C12.532 14.607 13 12.392 13 10c0-2.392-.468-4.607-1.253-6.177C11.119 2.568 10.447 2 10 2c-.448 0-1.119.568-1.747 1.823C7.468 5.393 7 7.608 7 10c0 2.392.468 4.607 1.253 6.177C8.881 17.432 9.553 18 10 18zm0 2c-2.761 0-5-4.477-5-10S7.239 0 10 0s5 4.477 5 10-2.239 10-5 10z"></path><path d="M2 12h16v2H2v-2zm0-6h16v2H2V6z"></path></svg>URL</button>
+                <button class="tButton" id="vcardQRButton" onclick="openTab('vcardQR', 'vcardQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor"><path d="M2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v10h16V2H2zm9 2h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zm0 3h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zM4 4h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path></svg>vCard</button>
+                <button class="tButton" id="wifiQRButton" onclick="openTab('wifiQR', 'wifiQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor"><path d="M10 13.992a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM7.894 11.44a1 1 0 0 1-1.788-.894 4.355 4.355 0 0 1 7.788 0 1 1 0 1 1-1.788.894 2.353 2.353 0 0 0-4.212 0zM4.8 8.595a1 1 0 0 1-1.6-1.2 8.503 8.503 0 0 1 13.6 0 .999.999 0 1 1-1.6 1.2 6.503 6.503 0 0 0-10.4 0zm-3.057-2.93A1 1 0 0 1 .257 4.329c4.843-5.377 13.13-5.813 18.512-.973.342.307.667.632.974.973a.999.999 0 1 1-1.486 1.338 10.91 10.91 0 0 0-.826-.826C12.871.74 5.847 1.108 1.743 5.666z"></path></svg>WiFi</button>
+                <button class="tButton" id="smsQRButton" onclick="openTab('smsQR', 'smsQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2.5 24 24" width="24" fill="currentColor"><path d="M3 0h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-6.958l-6.444 4.808A1 1 0 0 1 2 18.006V14a2 2 0 0 1-2-2V3a3 3 0 0 1 3-3zm6.378 12H17a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1 1 1 0 0 1 1 1v3.013L9.378 12zM13 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM7 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path></svg>SMS</button>
+                <button class="tButton" id="emailQRButton" onclick="openTab('emailQR', 'emailQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor"><path d="M3.598 2l5.747 5.12a1 1 0 0 0 1.33 0L16.423 2H3.598zM18 3.273l-5.994 5.341a3 3 0 0 1-3.992 0L2 3.254V12h16V3.273zM2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"></path></svg>email</button>
+                <button class="tButton" id="phoneQRButton" onclick="openTab('phoneQR', 'phoneQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -2 24 24" width="24" fill="currentColor"><path d="M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm3 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path></svg>phone</button>
+                <button class="tButton" id="cryptoQRButton" onclick="openTab('cryptoQR', 'cryptoQRButton')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor"><path d="M9 13v-2a3 3 0 1 1 0-6V4a1 1 0 1 1 2 0v1h.022A2.978 2.978 0 0 1 14 7.978a1 1 0 0 1-2 0A.978.978 0 0 0 11.022 7H11v2a3 3 0 0 1 0 6v1a1 1 0 0 1-2 0v-1h-.051A2.949 2.949 0 0 1 6 12.051a1 1 0 1 1 2 0 .95.95 0 0 0 .949.949H9zm2 0a1 1 0 0 0 0-2v2zM9 7a1 1 0 1 0 0 2V7zm1 13C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"></path></svg>Crypto</button>
             </div>
         </section>
         <section class="mainFormSection">
@@ -96,7 +97,7 @@
                     <input id="workPhoneNumber" class="workPhoneNumber" name="workPhoneNumber" placeholder="Work Number" />
                     <input id="personalPhoneNumber" class="personalPhoneNumber" name="personalPhoneNumber" placeholder="Personal Number" />
                     <input id="email" class="email" name="email" type="email" placeholder="Email" />
-                    <input id="website" class="website" name="website" placeholder="Website" />
+                    <input id="url" class="url" name="url" placeholder="URL" />
                     <input id="streetAddress" class="streetAddress" name="streetAddress" placeholder="Address" />
                     <input id="city" class="city" name="city" placeholder="City" />
                     <input id="state" class="state" name="state" placeholder="State" />
@@ -109,7 +110,7 @@
                     <input type="text" name="wifiInput" id="wifiInput" class="wifiInput" placeholder="WiFi Name"></input>
                     <input type="text" name="wifiPasswordInput" id="wifiPasswordInput" class="wifiPasswordInput" placeholder="WiFi Password"></input>
                     <select name="wifiEncryption" id="wifiEncryption" class="wifiEncryption">
-                        <option disabled selected>Encryption Type</option>
+                        <option disabled selected>Select Encryption Type</option>
                         <option value="nopass">No Encryption</option>
                         <option value="WPA">WPA/WPA2 Encryption</option>
                         <option value="WEP">WEP Encryption</option>
@@ -132,6 +133,24 @@
             <div class="tab" id="phoneQR" style="display: none;">
                 <form method="post" id="phoneQR" class="phone">
                     <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number">
+                </form>
+            </div>
+            <div class="tab" id="cryptoQR" style="display: none;">
+                <form method="post" id="cryptoQR" class="crypto">
+                    <select name="cryptoList" id="cryptoList" class="cryptoList">
+                        <option disabled selected>Select Crypto Coin</option>
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="bitcoincash">Bitcoin Cash</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value="dogecoin">Dogecoin</option>
+                        <option value="litecoin">Litecoin</option>
+                        <option value="dash">Dash</option>
+                        <option value="monero">Monero</option>
+                        <option value="cardano">Cardano</option>
+                    </select>
+                    <input type="text" name="cryptoAddress" class="cryptoAddress" id="cryptoAddress" placeholder=" Crypto Address">
+                    <input type="number" name="cryptoAmount" class="cryptoAmount" id="cryptoAmount" placeholder="Amount">
+                    <textarea name="cryptoMessage" class="cryptoMessage" id="cryptoMessage" placeholder="Message"></textarea>
                 </form>
             </div>
             <div class="qrImageSection" id="qrImageSection">
