@@ -75,68 +75,117 @@
                     <div class="counterDiv" id="counterDiv">
                         <span id="count" class="counter"></span>
                     </div>
-                    <!-- <div class="qrColorsDiv">
-                    <label class="qrPatternColorLabel" for="qrPatternColor">Pattern</label>
-                    <input type="color" id="qrPatternColor" name="qrPatternColor" value="#000000">
-                    <label class="qrBGColorLabel" for="qrBGColor">Background</label>
-                    <input type="color" id="qrBGColor" name="qrBGColor" value="#FFFFFF">
-            </div> -->
+                    <div class="qrColorsDiv">
+                        <label class="textQRPatternColorLabel" for="textQRPatternColor">Pattern</label>
+                        <input type="color" id="textQRPatternColor" name="textQRPatternColor" value="#000000">
+                        <label class="textQRBGColorLabel" for="textQRBGColor">Background</label>
+                        <input type="color" id="textQRBGColor" name="textQRBGColor" value="#FFFFFF">
+                    </div>
                 </form>
             </div>
             <div class="tab" id="urlQR" style="display: none">
-                <form method="post" id="urlQR" class="urlQR">
-                    <input type="url" name="urlInput" id="urlInput" class="urlInput" placeholder="Enter URL" maxlength="1200"></input>
+                <form method="post">
+                    <div id="urlQR" class="urlQR">
+                        <input type="url" name="urlInput" id="urlInput" class="urlInput" placeholder="Enter URL" maxlength="1200"></input>
+                    </div>
+                    <div class="qrColorsDiv">
+                        <label class="urlQRPatternColorLabel" for="urlQRPatternColor">Pattern</label>
+                        <input type="color" id="urlQRPatternColor" name="urlQRPatternColor" value="#000000">
+                        <label class="urlQRBGColorLabel" for="urlQRBGColor">Background</label>
+                        <input type="color" id="urlQRBGColor" name="urlQRBGColor" value="#FFFFFF">
+                    </div>
                 </form>
             </div>
             <div class="tab" id="vcardQR" style="display: none">
-                <form method="post" id="vcardQR" class="vcardQR">
-                    <input id="firstName" class="firstName" name="firstName" placeholder="First Name" />
-                    <input id="lastName" class="lastName" name="lastName" placeholder="Last Name" />
-                    <input id="org" class="org" name="org" placeholder="Organization" />
-                    <input id="workTitle" class="workTitle" name="workTitle" placeholder="Work Title" />
-                    <input id="workPhoneNumber" class="workPhoneNumber" name="workPhoneNumber" placeholder="Work Number" />
-                    <input id="personalPhoneNumber" class="personalPhoneNumber" name="personalPhoneNumber" placeholder="Personal Number" />
-                    <input id="email" class="email" name="email" type="email" placeholder="Email" />
-                    <input id="url" class="url" name="url" placeholder="URL" />
-                    <input id="streetAddress" class="streetAddress" name="streetAddress" placeholder="Address" />
-                    <input id="city" class="city" name="city" placeholder="City" />
-                    <input id="state" class="state" name="state" placeholder="State" />
-                    <input id="zipcode" class="zipcode" name="zipcode" placeholder="Zip Code" />
-                    <input id="country" class="country" name="country" placeholder="Country" />
+                <form method="post">
+                    <div id="vcardQR" class="vcardQR">
+                        <input id="firstName" class="firstName" name="firstName" placeholder="First Name" />
+                        <input id="lastName" class="lastName" name="lastName" placeholder="Last Name" />
+                        <input id="org" class="org" name="org" placeholder="Organization" />
+                        <input id="workTitle" class="workTitle" name="workTitle" placeholder="Work Title" />
+                        <input id="workPhoneNumber" class="workPhoneNumber" name="workPhoneNumber" placeholder="Work Number" />
+                        <input id="personalPhoneNumber" class="personalPhoneNumber" name="personalPhoneNumber" placeholder="Personal Number" />
+                        <input id="email" class="email" name="email" type="email" placeholder="Email" />
+                        <input id="url" class="url" name="url" placeholder="URL" />
+                        <input id="streetAddress" class="streetAddress" name="streetAddress" placeholder="Address" />
+                        <input id="city" class="city" name="city" placeholder="City" />
+                        <input id="state" class="state" name="state" placeholder="State" />
+                        <input id="zipcode" class="zipcode" name="zipcode" placeholder="Zip Code" />
+                        <input id="country" class="country" name="country" placeholder="Country" />
+                    </div>
+                    <div class="qrColorsDiv">
+                        <label class="vcardQRPatternColorLabel" for="vcardQRPatternColor">Pattern</label>
+                        <input type="color" id="vcardQRPatternColor" name="vcardQRPatternColor" value="#000000">
+                        <label class="vcardQRBGColorLabel" for="vcardQRBGColor">Background</label>
+                        <input type="color" id="vcardQRBGColor" name="vcardQRBGColor" value="#FFFFFF">
+                    </div>
                 </form>
             </div>
             <div class="tab" id="wifiQR" style="display: none">
-                <form method="post" id="wifiQR" class="wifiQR">
-                    <input type="text" name="wifiInput" id="wifiInput" class="wifiInput" placeholder="WiFi Name"></input>
-                    <input type="text" name="wifiPasswordInput" id="wifiPasswordInput" class="wifiPasswordInput" placeholder="WiFi Password"></input>
-                    <select name="wifiEncryption" id="wifiEncryption" class="wifiEncryption">
-                        <option disabled selected>Select Encryption Type</option>
-                        <option value="nopass">No Encryption</option>
-                        <option value="WPA">WPA/WPA2 Encryption</option>
-                        <option value="WEP">WEP Encryption</option>
-                    </select>
+                <form method="post">
+                    <div id="wifiQR" class="wifiQR">
+                        <input type="text" name="wifiInput" id="wifiInput" class="wifiInput" placeholder="WiFi Name"></input>
+                        <input type="text" name="wifiPasswordInput" id="wifiPasswordInput" class="wifiPasswordInput" placeholder="WiFi Password"></input>
+                        <select name="wifiEncryption" id="wifiEncryption" class="wifiEncryption">
+                            <option disabled selected>Select Encryption Type</option>
+                            <option value="nopass">No Encryption</option>
+                            <option value="WPA">WPA/WPA2 Encryption</option>
+                            <option value="WEP">WEP Encryption</option>
+                        </select>
+                    </div>
+                    <div class="qrColorsDiv">
+                        <label class="wifiQRPatternColorLabel" for="wifiQRPatternColor">Pattern</label>
+                        <input type="color" id="wifiQRPatternColor" name="wifiQRPatternColor" value="#000000">
+                        <label class="wifiQRBGColorLabel" for="wifiQRBGColor">Background</label>
+                        <input type="color" id="wifiQRBGColor" name="wifiQRBGColor" value="#FFFFFF">
+                    </div>
                 </form>
             </div>
             <div class="tab" id="smsQR" style="display: none;">
-                <form method="post" id="smsQR" class="sms">
+                <form method="post">
+                    <div id="smsQR" class="sms">
                     <input type="text" name="phoneNumber" class="phoneNumber" id="phoneNumber" placeholder="Phone Number">
                     <textarea name="messageToSend" class="messageToSend" id="messageToSend" placeholder="Message"></textarea>
+                </div>
+                <div class="qrColorsDiv">
+                    <label class="smsQRPatternColorLabel" for="smsQRPatternColor">Pattern</label>
+                    <input type="color" id="smsQRPatternColor" name="smsQRPatternColor" value="#000000">
+                    <label class="smsQRBGColorLabel" for="smsQRBGColor">Background</label>
+                    <input type="color" id="smsQRBGColor" name="smsQRBGColor" value="#FFFFFF">
+                </div>
                 </form>
             </div>
             <div class="tab" id="emailQR" style="display: none;">
-                <form method="post" id="emailQR" class="email">
+                <form method="post">
+                    <div id="emailQR" class="email">
                     <input type="text" name="emailAddress" class="emailAddress" id="emailAddress" placeholder="Email address">
                     <input type="text" name="subject" class="subject" id="subject" placeholder="Email subject">
                     <textarea name="emailToSend" class="emailToSend" id="emailToSend" placeholder="Email body"></textarea>
+                </div>
+                <div class="qrColorsDiv">
+                    <label class="emailQRPatternColorLabel" for="emailQRPatternColor">Pattern</label>
+                    <input type="color" id="emailQRPatternColor" name="emailQRPatternColor" value="#000000">
+                    <label class="emailQRBGColorLabel" for="emailQRBGColor">Background</label>
+                    <input type="color" id="emailQRBGColor" name="emailQRBGColor" value="#FFFFFF">
+                </div>
                 </form>
             </div>
             <div class="tab" id="phoneQR" style="display: none;">
-                <form method="post" id="phoneQR" class="phone">
+                <form method="post">
+                    <div id="phoneQR" class="phone">
                     <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number">
+                </div>
+                <div class="qrColorsDiv">
+                    <label class="phoneQRPatternColorLabel" for="phoneQRPatternColor">Pattern</label>
+                    <input type="color" id="phoneQRPatternColor" name="phoneQRPatternColor" value="#000000">
+                    <label class="phoneQRBGColorLabel" for="phoneQRBGColor">Background</label>
+                    <input type="color" id="phoneQRBGColor" name="phoneQRBGColor" value="#FFFFFF">
+                </div>
                 </form>
             </div>
             <div class="tab" id="cryptoQR" style="display: none;">
-                <form method="post" id="cryptoQR" class="crypto">
+                <form method="post">
+                    <div id="cryptoQR" class="crypto">
                     <select name="cryptoList" id="cryptoList" class="cryptoList">
                         <option disabled selected>Select Crypto Coin</option>
                         <option value="bitcoin">Bitcoin</option>
@@ -151,6 +200,13 @@
                     <input type="text" name="cryptoAddress" class="cryptoAddress" id="cryptoAddress" placeholder=" Crypto Address">
                     <input type="number" name="cryptoAmount" class="cryptoAmount" id="cryptoAmount" placeholder="Amount">
                     <textarea name="cryptoMessage" class="cryptoMessage" id="cryptoMessage" placeholder="Message"></textarea>
+                </div>
+                <div class="qrColorsDiv">
+                    <label class="cryptoQRPatternColorLabel" for="cryptoQRPatternColor">Pattern</label>
+                    <input type="color" id="cryptoQRPatternColor" name="cryptoQRPatternColor" value="#000000">
+                    <label class="cryptoQRBGColorLabel" for="cryptoQRBGColor">Background</label>
+                    <input type="color" id="cryptoQRBGColor" name="cryptoQRBGColor" value="#FFFFFF">
+                </div>
                 </form>
             </div>
             <div class="qrImageSection" id="qrImageSection">

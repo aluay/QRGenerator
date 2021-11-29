@@ -37,9 +37,8 @@ app.post("/generate", async (req, res) => {
   //  encode the data to a base64 string
   QRCode.toDataURL(req.body.qrData, qrOptions, (err, src) => {
     if (err) res.send("Something went wrong!");
-    const img = Buffer.from(src);
     //  Send the image back to the frontend
-    res.send(img);
+    res.send(src);
   });
 });
 

@@ -35,12 +35,16 @@ textarea.onkeyup = function () {
 
 //  Text qr generator
 //  Format the input and sends it to the server
-$("#textQR").keyup(function (event) {
+$("#textQR").on("keyup change", function (event) {
   event.preventDefault();
+  const textQRPatternColor = $("#textQRPatternColor").text(
+    $("#textQRPatternColor")
+  );
+  const textQRBGColor = $("#textQRBGColor").text($("#textQRBGColor"));
   const qrData = $("#textInput").val();
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, textQRBGColor.val(), textQRPatternColor.val());
   } else {
     return false;
   }
@@ -48,12 +52,16 @@ $("#textQR").keyup(function (event) {
 
 //  URL qr generator
 //  Format the input and sends it to the server
-$("#urlQR").keyup(function (event) {
+$("#urlQR").on("keyup change", function (event) {
   event.preventDefault();
+  const urlQRPatternColor = $("#urlQRPatternColor").text(
+    $("#urlQRPatternColor")
+  );
+  const urlQRBGColor = $("#urlQRBGColor").text($("#urlQRBGColor"));
   const qrData = $("#urlInput").val();
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, urlQRBGColor.val(), urlQRPatternColor.val());
   } else {
     return false;
   }
@@ -62,12 +70,16 @@ $("#urlQR").keyup(function (event) {
 //  WiFi qr generator
 //  Format the input and sends it to the server
 $("#wifiQR").on("keyup change", function () {
+  const wifiQRPatternColor = $("#wifiQRPatternColor").text(
+    $("#wifiQRPatternColor")
+  );
+  const wifiQRBGColor = $("#wifiQRBGColor").text($("#wifiQRBGColor"));
   const qrData = `WIFI:S:${$("#wifiInput").val()};T:${$(
     "#wifiEncryption"
   ).val()};P:${$("#wifiPasswordInput").val()};;`;
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, wifiQRBGColor.val(), wifiQRPatternColor.val());
   } else {
     return false;
   }
@@ -76,6 +88,10 @@ $("#wifiQR").on("keyup change", function () {
 //  Crypto qr generator
 //  Format the input and sends it to the server
 $("#cryptoQR").on("keyup change", function () {
+  const cryptoQRPatternColor = $("#cryptoQRPatternColor").text(
+    $("#cryptoQRPatternColor")
+  );
+  const cryptoQRBGColor = $("#cryptoQRBGColor").text($("#cryptoQRBGColor"));
   const qrData = `${$("#cryptoList").val()}:${$(
     "#cryptoAddress"
   ).val()}?amount=${$("#cryptoAmount").val()}&message=${$(
@@ -84,7 +100,7 @@ $("#cryptoQR").on("keyup change", function () {
   console.log(qrData);
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, cryptoQRBGColor.val(), cryptoQRPatternColor.val());
   } else {
     return false;
   }
@@ -92,13 +108,17 @@ $("#cryptoQR").on("keyup change", function () {
 
 //  SMS qr generator
 //  Format the input and sends it to the server
-$("#smsQR").keyup(function () {
+$("#smsQR").on("keyup change", function () {
+  const smsQRPatternColor = $("#smsQRPatternColor").text(
+    $("#smsQRPatternColor")
+  );
+  const smsQRBGColor = $("#smsQRBGColor").text($("#smsQRBGColor"));
   const qrData = `SMSTO:${$("#phoneNumber").val()}:${$(
     "#messageToSend"
   ).val()}`;
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, smsQRBGColor.val(), smsQRPatternColor.val());
   } else {
     return false;
   }
@@ -106,13 +126,17 @@ $("#smsQR").keyup(function () {
 
 //  Email qr generator
 //  Format the input and sends it to the server
-$("#emailQR").keyup(function () {
+$("#emailQR").on("keyup change", function () {
+  const emailQRPatternColor = $("#emailQRPatternColor").text(
+    $("#emailQRPatternColor")
+  );
+  const emailQRBGColor = $("#emailQRBGColor").text($("#emailQRBGColor"));
   const qrData = `mailto:${$("#emailAddress").val()}?subject=${$(
     "#subject"
   ).val()}&body=${$("#emailToSend").val()}`;
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, emailQRBGColor.val(), emailQRPatternColor.val());
   } else {
     return false;
   }
@@ -120,12 +144,16 @@ $("#emailQR").keyup(function () {
 
 //  Phone qr generator
 //  Format the input and sends it to the server
-$("#phoneQR").keyup(function (event) {
+$("#phoneQR").on("keyup change", function (event) {
+  const phoneQRPatternColor = $("#phoneQRPatternColor").text(
+    $("#phoneQRPatternColor")
+  );
+  const phoneQRBGColor = $("#phoneQRBGColor").text($("#phoneQRBGColor"));
   event.preventDefault();
   const qrData = `tel:${$("#phone").val()}`;
   //  Stop form submission if qrData is empty
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, phoneQRBGColor.val(), phoneQRPatternColor.val());
   } else {
     return false;
   }
@@ -133,7 +161,11 @@ $("#phoneQR").keyup(function (event) {
 
 //  vCard qr generator
 //  Format the input and sends it to the server
-$("#vcardQR").keyup(function (event) {
+$("#vcardQR").on("keyup change", function (event) {
+  const vcardQRPatternColor = $("#vcardQRPatternColor").text(
+    $("#vcardQRPatternColor")
+  );
+  const vcardQRBGColor = $("#vcardQRBGColor").text($("#vcardQRBGColor"));
   event.preventDefault();
   //  VERY long const since the vCard format has lots of details
   const qrData = `BEGIN:VCARD\nVERSION:3\nN:${$("#lastName").val()};${$(
@@ -148,7 +180,7 @@ $("#vcardQR").keyup(function (event) {
     "#country"
   ).val()}\nEND:VCARD`;
   if (qrData) {
-    sendToGenerator(qrData);
+    sendToGenerator(qrData, vcardQRBGColor.val(), vcardQRPatternColor.val());
   } else {
     return false;
   }
@@ -156,7 +188,7 @@ $("#vcardQR").keyup(function (event) {
 
 //  One method that gets called by jQuery code above
 //  It takes the data and sends it to the generator
-const sendToGenerator = async (qrData) => {
+const sendToGenerator = async (qrData, qrBGColor, qrPatternColor) => {
   $.ajax({
     global: false,
     type: "POST",
@@ -164,6 +196,8 @@ const sendToGenerator = async (qrData) => {
     dataType: "html",
     data: {
       qrData,
+      qrBGColor,
+      qrPatternColor,
     },
     success: function (result) {
       //  update the img element SRC to show newly generated QR code
