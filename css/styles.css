@@ -399,7 +399,7 @@ button {
     height: 18px;
     width: 18px;
     border-radius: 25px;
-    background: var(--grayColor);
+    background: var(--whiteColor);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -7px;
