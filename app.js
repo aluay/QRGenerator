@@ -21,14 +21,15 @@ app.get("/", async (req, res) => {
 //  One function to generate the QR codes
 app.post("/generate", async (req, res) => {
   //  QR options
-  //  By default the colors are black for the pattern and white for the background
+  //  By default the colors are black pattern and white background
   const qrBGColor = req.body.qrBGColor;
   const qrPatternColor = req.body.qrPatternColor;
+  const qrSize = req.body.qrSize;
   const qrOptions = {
     errorCorrectionLevel: "H",
     margin: 0.5,
-    width: 1000,
-    height: 1000,
+    width: qrSize,
+    height: qrSize,
     color: {
       dark: qrPatternColor,
       light: qrBGColor,
