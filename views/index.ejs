@@ -21,10 +21,6 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="Content-Security-Policy" content="default-src * https://simpleqrgen.com;
-    script-src * 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' https://simpleqrgen.com data:" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta name="”robots”" content="index, follow" />
@@ -42,6 +38,9 @@
   <link rel="mask-icon" href="/assets/image/safari-pinned-tab.svg" color="#5bbad5" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css" />
   <title>QR Code Generator</title>
 </head>
@@ -52,198 +51,433 @@
       style="display: none; visibility: hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <main class="mainContent" id="mainContent">
+
     <section class="mainHeaderSection">
+      <div class="darkModeDiv">
+        <label class="darkSwitchIcon" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
       <a href="https://www.simpleqrgen.com/">
-        <h1 class="qrHeader">Simple QR Code Generator</h1>
+        <h1 class="qrHeader">
+          <img src="/assets/image/siteLogo.svg">
+          Simple QR Generator</h1>
       </a>
     </section>
-    <section class="tabsSection">
-      <div class="tabButtons">
-        <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')"
-          style="background-color: var(--surfaceColor)">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="24" fill="currentColor">
-            <path
-              d="M5 18v2H3v-2H0V0h11a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5zM3 2H2v14h1V2zm2 0v14h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5zm1 2h5v2H6V4zm0 3h5v2H6V7z">
-            </path>
-          </svg>Text
-        </button>
-        <button class="tButton" id="urlQRButton" onclick="openTab('urlQR', 'urlQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor">
-            <path
-              d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10z">
-            </path>
-            <path
-              d="M10 18c.448 0 1.119-.568 1.747-1.823C12.532 14.607 13 12.392 13 10c0-2.392-.468-4.607-1.253-6.177C11.119 2.568 10.447 2 10 2c-.448 0-1.119.568-1.747 1.823C7.468 5.393 7 7.608 7 10c0 2.392.468 4.607 1.253 6.177C8.881 17.432 9.553 18 10 18zm0 2c-2.761 0-5-4.477-5-10S7.239 0 10 0s5 4.477 5 10-2.239 10-5 10z">
-            </path>
-            <path d="M2 12h16v2H2v-2zm0-6h16v2H2V6z"></path>
-          </svg>URL
-        </button>
-        <button class="tButton" id="vcardQRButton" onclick="openTab('vcardQR', 'vcardQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor">
-            <path
-              d="M2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v10h16V2H2zm9 2h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zm0 3h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zM4 4h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z">
-            </path>
-          </svg>vCard
-        </button>
-        <button class="tButton" id="wifiQRButton" onclick="openTab('wifiQR', 'wifiQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor">
-            <path
-              d="M10 13.992a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM7.894 11.44a1 1 0 0 1-1.788-.894 4.355 4.355 0 0 1 7.788 0 1 1 0 1 1-1.788.894 2.353 2.353 0 0 0-4.212 0zM4.8 8.595a1 1 0 0 1-1.6-1.2 8.503 8.503 0 0 1 13.6 0 .999.999 0 1 1-1.6 1.2 6.503 6.503 0 0 0-10.4 0zm-3.057-2.93A1 1 0 0 1 .257 4.329c4.843-5.377 13.13-5.813 18.512-.973.342.307.667.632.974.973a.999.999 0 1 1-1.486 1.338 10.91 10.91 0 0 0-.826-.826C12.871.74 5.847 1.108 1.743 5.666z">
-            </path>
-          </svg>WiFi
-        </button>
-        <button class="tButton" id="smsQRButton" onclick="openTab('smsQR', 'smsQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2.5 24 24" width="24" fill="currentColor">
-            <path
-              d="M3 0h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-6.958l-6.444 4.808A1 1 0 0 1 2 18.006V14a2 2 0 0 1-2-2V3a3 3 0 0 1 3-3zm6.378 12H17a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1 1 1 0 0 1 1 1v3.013L9.378 12zM13 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM7 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z">
-            </path>
-          </svg>SMS
-        </button>
-        <button class="tButton" id="emailQRButton" onclick="openTab('emailQR', 'emailQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" width="24" fill="currentColor">
-            <path
-              d="M3.598 2l5.747 5.12a1 1 0 0 0 1.33 0L16.423 2H3.598zM18 3.273l-5.994 5.341a3 3 0 0 1-3.992 0L2 3.254V12h16V3.273zM2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z">
-            </path>
-          </svg>email
-        </button>
-        <button class="tButton" id="phoneQRButton" onclick="openTab('phoneQR', 'phoneQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -2 24 24" width="24" fill="currentColor">
-            <path
-              d="M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm3 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2z">
-            </path>
-          </svg>phone
-        </button>
-        <button class="tButton" id="cryptoQRButton" onclick="openTab('cryptoQR', 'cryptoQRButton')">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor">
-            <path
-              d="M9 13v-2a3 3 0 1 1 0-6V4a1 1 0 1 1 2 0v1h.022A2.978 2.978 0 0 1 14 7.978a1 1 0 0 1-2 0A.978.978 0 0 0 11.022 7H11v2a3 3 0 0 1 0 6v1a1 1 0 0 1-2 0v-1h-.051A2.949 2.949 0 0 1 6 12.051a1 1 0 1 1 2 0 .95.95 0 0 0 .949.949H9zm2 0a1 1 0 0 0 0-2v2zM9 7a1 1 0 1 0 0 2V7zm1 13C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z">
-            </path>
-          </svg>Crypto
-        </button>
-      </div>
-    </section>
-    <section class="mainFormSection">
-      <div class="tab" id="textQR">
-        <form method="post" id="textQR">
-          <textarea type="text" name="textInput" id="textInput" class="textInput" placeholder="Enter text"
-            maxlength="1200"></textarea>
-          <div class="counterDiv" id="counterDiv">
-            <span id="count" class="counter"></span>
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="urlQR" style="display: none">
-        <form method="post">
-          <div id="urlQR" class="urlQR">
-            <input type="url" name="urlInput" id="urlInput" class="urlInput" placeholder="Enter URL" maxlength="1200" />
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="vcardQR" style="display: none">
-        <form method="post">
-          <div id="vcardQR" class="vcardQR">
-            <input id="firstName" class="firstName" name="firstName" placeholder="First Name" />
-            <input id="lastName" class="lastName" name="lastName" placeholder="Last Name" />
-            <input id="org" class="org" name="org" placeholder="Organization" />
-            <input id="workTitle" class="workTitle" name="workTitle" placeholder="Work Title" />
-            <input id="workPhoneNumber" class="workPhoneNumber" name="workPhoneNumber" placeholder="Work Number" />
-            <input id="personalPhoneNumber" class="personalPhoneNumber" name="personalPhoneNumber"
-              placeholder="Personal Number" />
-            <input id="email" class="email" name="email" type="email" placeholder="Email" />
-            <input id="url" class="url" name="url" placeholder="URL" />
-            <input id="streetAddress" class="streetAddress" name="streetAddress" placeholder="Address" />
-            <input id="city" class="city" name="city" placeholder="City" />
-            <input id="state" class="state" name="state" placeholder="State" />
-            <input id="zipcode" class="zipcode" name="zipcode" placeholder="Zip Code" />
-            <input id="country" class="country" name="country" placeholder="Country" />
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="wifiQR" style="display: none">
-        <form method="post">
-          <div id="wifiQR" class="wifiQR">
-            <input type="text" name="wifiInput" id="wifiInput" class="wifiInput" placeholder="WiFi Name" />
-            <input type="text" name="wifiPasswordInput" id="wifiPasswordInput" class="wifiPasswordInput"
-              placeholder="WiFi Password" />
-            <select name="wifiEncryption" id="wifiEncryption" class="wifiEncryption">
-              <option disabled selected>Select Encryption Type</option>
-              <option value="nopass">No Encryption</option>
-              <option value="WPA">WPA/WPA2 Encryption</option>
-              <option value="WEP">WEP Encryption</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="smsQR" style="display: none">
-        <form method="post">
-          <div id="smsQR" class="sms">
-            <input type="text" name="phoneNumber" class="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
-            <textarea name="messageToSend" class="messageToSend" id="messageToSend" placeholder="Message"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="emailQR" style="display: none">
-        <form method="post">
-          <div id="emailQR" class="email">
-            <input type="text" name="emailAddress" class="emailAddress" id="emailAddress" placeholder="Email address" />
-            <input type="text" name="subject" class="subject" id="subject" placeholder="Email subject" />
-            <textarea name="emailToSend" class="emailToSend" id="emailToSend" placeholder="Email body"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="phoneQR" style="display: none">
-        <form method="post">
-          <div id="phoneQR" class="phone">
-            <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" />
-          </div>
-        </form>
-      </div>
-      <div class="tab" id="cryptoQR" style="display: none">
-        <form method="post">
-          <div id="cryptoQR" class="crypto">
-            <select name="cryptoList" id="cryptoList" class="cryptoList">
-              <option disabled selected>Select Crypto Coin</option>
-              <option value="bitcoin">Bitcoin</option>
-              <option value="bitcoincash">Bitcoin Cash</option>
-              <option value="ethereum">Ethereum</option>
-              <option value="dogecoin">Dogecoin</option>
-              <option value="litecoin">Litecoin</option>
-              <option value="dash">Dash</option>
-              <option value="monero">Monero</option>
-              <option value="cardano">Cardano</option>
-            </select>
-            <input type="text" name="cryptoAddress" class="cryptoAddress" id="cryptoAddress"
-              placeholder=" Crypto Address" />
-            <input type="number" name="cryptoAmount" class="cryptoAmount" id="cryptoAmount" placeholder="Amount" />
-            <textarea name="cryptoMessage" class="cryptoMessage" id="cryptoMessage" placeholder="Message"></textarea>
-          </div>
-        </form>
-      </div>
 
+    <section class="tabsSection">
+      <button class="tButton" id="textQRButton" onclick="openTab('textQR', 'textQRButton')"
+        style="background-color: var(--lightGrayColor)">
+        <img src="/assets/image/qrText.svg">
+        Text
+      </button>
+      <button class="tButton" id="urlQRButton" onclick="openTab('urlQR', 'urlQRButton')">
+        <img src="/assets/image/qrURL.svg">
+        URL
+      </button>
+      <button class="tButton" id="vcardQRButton" onclick="openTab('vcardQR', 'vcardQRButton')">
+        <img src="/assets/image/qrVcard.svg">
+        vCard
+      </button>
+      <button class="tButton" id="wifiQRButton" onclick="openTab('wifiQR', 'wifiQRButton')">
+        <img src="/assets/image/qrWiFi.svg">
+        WiFi
+      </button>
+      <button class="tButton" id="smsQRButton" onclick="openTab('smsQR', 'smsQRButton')">
+        <img src="/assets/image/qrSMS.svg">
+        SMS
+      </button>
+      <button class="tButton" id="emailQRButton" onclick="openTab('emailQR', 'emailQRButton')">
+        <img src="/assets/image/qrEmail.svg">
+        Email
+      </button>
+      <button class="tButton" id="phoneQRButton" onclick="openTab('phoneQR', 'phoneQRButton')">
+        <img src="/assets/image/qrPhone.svg">
+        Phone
+      </button>
+      <button class="tButton" id="cryptoQRButton" onclick="openTab('cryptoQR', 'cryptoQRButton')">
+        <img src="/assets/image/qrCrypto.svg">
+        Crypto
+      </button>
     </section>
-    <section class="modSection" id="modSection">
-      <div class="qrColorsDiv" id="qrColorsDiv">
-        <div class="patternColorDiv">
-          <label class="QRPatternColorLabel" for="QRPatternColor">Pattern Color</label>
-          <input type="color" id="QRPatternColor" name="QRPatternColor" value="#000000" />
-        </div>
-        <div class="bgColorDiv">
-          <label class="QRBGColorLabel" for="QRBGColor">Background Color</label>
-          <input type="color" id="QRBGColor" name="QRBGColor" value="#FFFFFF" />
-        </div>
-      </div>
-      <div class="slideDiv">
-        <p>Size: <span id="qrSizeValue" class="qrSizeValue"></span></p>
-        <input type="range" min="200" max="2000" value="1000" class="qrSizeSlider" id="qrSizeSlider" step="25">
-      </div>
-    </section>
-    <section class="qrImgSection">
-      <div class="qrImageSection" id="qrImageSection">
-        <img src="" class="qrImg" id="qrImg" alt="Your generated QR code" />
-        <a href="" id="qrImgDownload" class="qrImgDownload" download="MyQRCode.jpg" style="display: none">
-          <h1>>Download</h1>
-        </a>
-      </div>
+    <section class="flexContainer">
+      <section class="flexItems">
+        <section class="mainFormSection">
+          <div class="tab" id="textQR">
+            <form method="post" id="textQR">
+              <textarea type="text" name="textInput" id="textInput" class="textInput textareaField"
+                placeholder="Enter text" maxlength="1200" onkeyup="countChar(this)"></textarea>
+              <div class="counterDiv" id="counterDiv">
+                <span>Characters left: </span>
+                <span id="count" class="counter">1200</span>
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="textQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="urlQR" style="display: none;">
+            <form method="post">
+              <div id="urlQR" class="urlQR">
+                <input type="url" name="urlInput" id="urlInput" class="urlInput inputField" placeholder="Enter URL"
+                  maxlength="1200" />
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="urlQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="vcardQR" style="display: none">
+            <form method="post">
+              <div id="vcardQR" class="vcardQR">
+                <input id="firstName" class="firstName" name="firstName" placeholder="First Name" />
+                <input id="lastName" class="lastName" name="lastName" placeholder="Last Name" />
+                <input id="org" class="org" name="org" placeholder="Organization" />
+                <input id="workTitle" class="workTitle" name="workTitle" placeholder="Work Title" />
+                <input id="workPhoneNumber" class="workPhoneNumber" name="workPhoneNumber" placeholder="Work Number" />
+                <input id="personalPhoneNumber" class="personalPhoneNumber" name="personalPhoneNumber"
+                  placeholder="Personal Number" />
+                <input id="email" class="email" name="email" type="email" placeholder="Email" />
+                <input id="url" class="url" name="url" placeholder="URL" />
+                <input id="streetAddress" class="streetAddress" name="streetAddress" placeholder="Address" />
+                <input id="city" class="city" name="city" placeholder="City" />
+                <input id="state" class="state" name="state" placeholder="State" />
+                <input id="zipcode" class="zipcode" name="zipcode" placeholder="Zip Code" />
+                <input id="country" class="country" name="country" placeholder="Country" />
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="vcardQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="wifiQR" style="display: none">
+            <form method="post">
+              <div id="wifiQR" class="wifiQR">
+                <input type="text" name="wifiInput" id="wifiInput" class="wifiInput inputField"
+                  placeholder="WiFi Name" />
+                <input type="text" name="wifiPasswordInput" id="wifiPasswordInput" class="wifiPasswordInput inputField"
+                  placeholder="WiFi Password" />
+                <select name="wifiEncryption" id="wifiEncryption" class="wifiEncryption inputField">
+                  <option value="WPA" selected>WPA/WPA2 Encryption</option>
+                  <option value="WEP">WEP Encryption</option>
+                  <option value="nopass">No Encryption</option>
+                </select>
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="wifiQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="smsQR" style="display: none">
+            <form method="post">
+              <div id="smsQR" class="sms">
+                <input type="text" name="phoneNumber" class="phoneNumber inputField" id="phoneNumber"
+                  placeholder="Phone Number" />
+                <textarea name="messageToSend" class="messageToSend textareaField" id="messageToSend"
+                  placeholder="Message"></textarea>
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="smsQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="emailQR" style="display: none">
+            <form method="post">
+              <div id="emailQR" class="email">
+                <input type="text" name="emailAddress" class="emailAddress inputField" id="emailAddress"
+                  placeholder="Email address" />
+                <input type="text" name="subject" class="subject inputField" id="subject" placeholder="Email subject" />
+                <textarea name="emailToSend" class="emailToSend textareaField" id="emailToSend"
+                  placeholder="Email body"></textarea>
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="emailQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="phoneQR" style="display: none">
+            <form method="post">
+              <div id="phoneQR" class="phone">
+                <input type="text" name="phone" class="phone inputField" id="phone" placeholder="Phone Number" />
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="phoneQRFunction();">Generate</button>
+            </form>
+          </div>
+          <div class="tab" id="cryptoQR" style="display: none">
+            <form method="post">
+              <div id="cryptoQR" class="crypto">
+                <select name="cryptoList" id="cryptoList" class="cryptoList inputField">
+                  <option value="bitcoin" selected>Bitcoin</option>
+                  <option value="bitcoincash">Bitcoin Cash</option>
+                  <option value="ethereum">Ethereum</option>
+                  <option value="dogecoin">Dogecoin</option>
+                  <option value="litecoin">Litecoin</option>
+                  <option value="dash">Dash</option>
+                  <option value="monero">Monero</option>
+                  <option value="cardano">Cardano</option>
+                </select>
+                <input type="text" name="cryptoAddress" class="cryptoAddress inputField" id="cryptoAddress"
+                  placeholder=" Crypto Address" />
+                <input type="number" name="cryptoAmount" class="cryptoAmount inputField" id="cryptoAmount"
+                  placeholder="Amount" />
+                <textarea name="cryptoMessage" class="cryptoMessage textareaField" id="cryptoMessage"
+                  placeholder="Message"></textarea>
+              </div>
+              <button type="button" id="qrBtn" class="qrBtn" onclick="cryptoQRFunction();">Generate</button>
+            </form>
+          </div>
+        </section>
+        <section class="modSection" id="modSection">
+          <button class="accordion">Size Options</button>
+          <div class="modTab" style="display: grid;">
+            <label for="width">Width</label>
+            <input type="number" name="width" id="width" min="100" max="10000" value="1000">
+
+            <label for="height">Height</label>
+            <input type="number" name="height" id="height" min="100" max="10000" value="1000">
+
+            <label for="margin">Margin</label>
+            <input type="number" name="margin" id="margin" min="0" max="10000" value="0">
+          </div>
+
+          <button class="accordion">Dots Options</button>
+          <div class="modTab">
+            <div class="dotsOptionsSelectionWrapper" style="display: grid;">
+              <label for="dotsOptionsType">Dots Type</label>
+              <select id="dotsOptionsType" name="dotsOptionsType">
+                <option value="square" selected="">Square</option>
+                <option value="dots">Dots</option>
+                <option value="rounded">Rounded</option>
+                <option value="extra-rounded">Extra rounded</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded">Classy rounded</option>
+              </select>
+
+              <label>Color Type</label>
+              <select id="dotsOptionsColorType" name="dotsOptionsColorType" onchange="dotsOptionsSwitchColorType();">
+                <option value="single">Single color</option>
+                <option value="gradient">Gradient Color</option>
+              </select>
+            </div>
+
+            <div id="dotsOptionSingleWrapper" style="visibility: visible; height: auto; display: grid;">
+              <label for="dotsOptionsSingleColor" id="dotsOptionSingleColorLabel">Dots
+                Color</label>
+              <div id="dotsOptionSingleColorDiv">
+                <input type="color" name="dotsOptionsSingleColor" id="dotsOptionsSingleColor" value="#000000">
+              </div>
+            </div>
+
+            <div id="dotsOptionGradientWrapper" style="visibility: hidden; height: 0px; display: grid;">
+              <label id="dotsOptionGradientTypeLabel">Gradient Type</label>
+              <select id="dotsOptionsGradientSelect" name="dotsOptionsGradientSelect">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+              </select>
+
+              <label id="dotsOptionGradientColorsLabel">Dots Gradient</label>
+              <div id="dotsOptionGradientColorsDiv">
+                <input type="color" name="dotsOptionsGradientColorOne" id="dotsOptionsGradientColorOne" value="#FF0000">
+                <input type="color" name="dotsOptionsGradientColorTwo" id="dotsOptionsGradientColorTwo" value="#0000FF">
+              </div>
+
+              <label id="dotsOptionsGradientRotationLabel">Rotation</label>
+              <div id="dotsOptionsGradientRotationDiv">
+                <input type="number" name="dotsOptionsGradientRotation" id="dotsOptionsGradientRotation" min="0"
+                  max="360" value="0">
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion">Corner Square Options</button>
+          <div class="modTab">
+            <div class="cornersSquareOptionsSelectionWrapper" style="display: grid;">
+              <label for="cornersSquareOptionsType">Dots Type</label>
+              <select id="cornersSquareOptionsType" name="cornersSquareOptionsType">
+                <option value="square" selected>Square</option>
+                <option value="dot">Dot</option>
+                <option value="extra-rounded">Extra rounded</option>
+                <option value="">None</option>
+              </select>
+
+              <label>Color Type</label>
+              <select id="cornersSquareOptionsColorType" name="cornersSquareOptionsColorType"
+                onchange="cornersSquareOptionsSwitchColorType();">
+                <option value="single">Single color</option>
+                <option value="gradient">Gradient Color</option>
+              </select>
+            </div>
+
+            <div id="cornersSquareOptionsSingleWrapper" style="visibility: visible; height: auto; display: grid;">
+              <label for="cornersSquareOptionsSingleColor" id="cornersSquareOptionsingleColorLabel">Dots
+                Color</label>
+              <div id="cornersSquareOptionsingleColorDiv">
+                <input type="color" name="cornersSquareOptionsSingleColor" id="cornersSquareOptionsSingleColor"
+                  value="#000000">
+              </div>
+            </div>
+
+            <div id="cornersSquareOptionsGradientWrapper" style="visibility: hidden; height: 0; display: grid;">
+              <label id="cornersSquareOptionsGradientTypeLabel">Gradient Type</label>
+              <select id="cornersSquareOptionsGradientSelect" name="cornersSquareOptionsGradientSelect">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+              </select>
+
+              <label id="cornersSquareOptionsGradientColorsLabel">Dots Gradient</label>
+              <div id="cornersSquareOptionsGradientColorsDiv">
+                <input type="color" name="cornersSquareOptionsGradientColorOne"
+                  id="cornersSquareOptionsGradientColorOne" value="#FF0000">
+                <input type="color" name="cornersSquareOptionsGradientColorTwo"
+                  id="cornersSquareOptionsGradientColorTwo" value="#0000FF">
+              </div>
+
+              <label id="cornersSquareOptionsGradientRotationLabel">Rotation</label>
+              <div id="cornersSquareOptionsGradientRotationDiv">
+                <input type="number" name="cornersSquareOptionsGradientRotation"
+                  id="cornersSquareOptionsGradientRotation" min="0" max="360" value="0">
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion">Corner Dot Options</button>
+          <div class="modTab">
+            <div class="cornersDotOptionsSelectionWrapper" style="display: grid;">
+              <label for="cornersDotOptionsType">Dots Type</label>
+              <select id="cornersDotOptionsType" name="cornersDotOptionsType">
+                <option value="" selected=>None</option>
+                <option value="square">Square</option>
+                <option value="dot">Dot</option>
+              </select>
+
+              <label>Color Type</label>
+              <select id="cornersDotOptionsColorType" name="cornersDotOptionsColorType"
+                onchange="cornersDotOptionsSwitchColorType();">
+                <option value="single">Single color</option>
+                <option value="gradient">Gradient Color</option>
+              </select>
+            </div>
+
+            <div id="cornersDotOptionsSingleWrapper" style="visibility: visible; height: auto; display: grid;">
+              <label for="cornersDotOptionsSingleColor" id="cornersDotOptionsingleColorLabel">Dots
+                Color</label>
+              <div id="cornersDotOptionsingleColorDiv">
+                <input type="color" name="cornersDotOptionsSingleColor" id="cornersDotOptionsSingleColor"
+                  value="#000000">
+              </div>
+            </div>
+
+            <div id="cornersDotOptionsGradientWrapper" style="visibility: hidden; height: 0; display: grid;">
+              <label id="cornersDotOptionsGradientTypeLabel">Gradient Type</label>
+              <select id="cornersDotOptionsGradientSelect" name="cornersDotOptionsGradientSelect">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+              </select>
+
+              <label id="cornersDotOptionsGradientColorsLabel">Dots Gradient</label>
+              <div id="cornersDotOptionsGradientColorsDiv">
+                <input type="color" name="cornersDotOptionsGradientColorOne" id="cornersDotOptionsGradientColorOne"
+                  value="#FF0000">
+                <input type="color" name="cornersDotOptionsGradientColorTwo" id="cornersDotOptionsGradientColorTwo"
+                  value="#0000FF">
+              </div>
+
+              <label id="cornersDotOptionsGradientRotationLabel">Rotation</label>
+              <div id="cornersDotOptionsGradientRotationDiv">
+                <input type="number" name="cornersDotOptionsGradientRotation" id="cornersDotOptionsGradientRotation"
+                  min="0" max="360" value="0">
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion">Background Options</button>
+          <div class="modTab">
+            <div class="backgroundOptionsSelectionWrapper" style="display: grid;">
+              <label>Color Type</label>
+              <select id="backgroundOptionsColorType" name="backgroundOptionsColorType"
+                onchange="backgroundOptionsSwitchColorType();">
+                <option value="single">Single color</option>
+                <option value="gradient">Gradient Color</option>
+              </select>
+            </div>
+
+            <div id="backgroundOptionsSingleWrapper" style="visibility: visible; height: auto; display: grid;">
+              <label for="backgroundOptionsSingleColor" id="backgroundOptionsingleColorLabel">Dots
+                Color</label>
+              <div id="backgroundOptionsingleColorDiv">
+                <input type="color" name="backgroundOptionsSingleColor" id="backgroundOptionsSingleColor"
+                  value="#ffffff">
+              </div>
+            </div>
+
+            <div id="backgroundOptionsGradientWrapper" style="visibility: hidden; height: 0; display: grid;">
+              <label id="backgroundOptionsGradientTypeLabel">Gradient Type</label>
+              <select id="backgroundOptionsGradientSelect" name="backgroundOptionsGradientSelect">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+              </select>
+
+              <label id="backgroundOptionsGradientColorsLabel">Dots Gradient</label>
+              <div id="backgroundOptionsGradientColorsDiv">
+                <input type="color" name="backgroundOptionsGradientColorOne" id="backgroundOptionsGradientColorOne"
+                  value="#FF0000">
+                <input type="color" name="backgroundOptionsGradientColorTwo" id="backgroundOptionsGradientColorTwo"
+                  value="#0000FF">
+              </div>
+
+              <label id="backgroundOptionsGradientRotationLabel">Rotation</label>
+              <div id="backgroundOptionsGradientRotationDiv">
+                <input type="number" name="backgroundOptionsGradientRotation" id="backgroundOptionsGradientRotation"
+                  min="0" max="360" value="0">
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion">Logo Options</button>
+          <div class="modTab" style="display: grid;">
+            <label for="logo">Upload logo</label>
+            <div>
+              <input type="file" id="logo" class="logo" name="logo" accept="image/png, image/gif, image/jpeg">
+              <button type="button" class="clearLogoButton" onclick="clearLogo();">Clear Logo</button>
+              <img src="" id="logoPreview" class="logoPreview">
+            </div>
+
+            <label>Hide Background Dots</label>
+            <select id="imageOptionsHideBackgroundDots" name="imageOptionsHideBackgroundDots">
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+
+            <label for="imageOptionsImageSize">Logo Size</label>
+            <input type="number" name="imageOptionsImageSize" id="imageOptionsImageSize" min="0" max="1" value="0.4"
+              step="0.1">
+
+            <label for="imageOptionsMargin">Margin</label>
+            <input type="number" name="imageOptionsMargin" id="imageOptionsMargin" min="0" max="10000" value="0">
+          </div>
+
+          <button class="accordion">Other Options</button>
+          <div class="modTab" style="display: grid;">
+            <label for="qrOptionsTypeNumber">Type Number</label>
+            <input type="number" name="qrOptionsTypeNumber" id="qrOptionsTypeNumber" min="0" max="40" value="0">
+
+            <label for="qrOptionsMode">Mode</label>
+            <select id="qrOptionsMode" name="qrOptionsMode">
+              <option value="Numeric">Numeric</option>
+              <option value="Alphanumeric">Alphanumeric</option>
+              <option value="Byte" selected="">Byte</option>
+              <option value="Kanji">Kanji</option>
+            </select>
+
+            <label for="qrOptionsErrorCorrectionLevel">Error Correction Level</label>
+            <select id="qrOptionsErrorCorrectionLevel" name="qrOptionsErrorCorrectionLevel">
+              <option value="L">L</option>
+              <option value="M">M</option>
+              <option value="Q">Q</option>
+              <option value="H" selected="">H</option>
+            </select>
+          </div>
+        </section>
+      </section>
+      <section class="flexItems">
+        <section class="qrImgSection">
+          <div class="qrImageSection" id="qrImageSection">
+            <img src="" class="qrImg" id="qrImg" />
+            <a href="" id="qrImgDownload" class="qrImgDownload" download="MyQRCode.jpg" style="display: none">
+              <h1>Download</h1>
+            </a>
+          </div>
+        </section>
+      </section>
     </section>
   </main>
   <footer></footer>
